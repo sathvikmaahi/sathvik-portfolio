@@ -226,7 +226,7 @@ const stats = [
   { number: "3+", label: "Years Experience" },
   { number: "15+", label: "Projects Completed" },
   { number: "4", label: "Certifications" },
-  { number: "95%", label: "Client Satisfaction" }
+  { number: "1000+", label: "Hours of Learning" }
 ];
 
 // Custom hook to detect if an element is in view
