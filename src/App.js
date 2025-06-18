@@ -555,7 +555,7 @@ export default function App() {
       {/* Footer */}
       <footer className="py-8 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-400">© {new Date().getFullYear()} Sathvik Sanka. Built with React & Tailwind CSS.</p>
+          <p className="text-gray-400">© {new Date().getFullYear()} Sathvik Sanka. Warning: May cause sudden inspiration..</p>
         </div>
       </footer>
 
