@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaArrowUp, FaExternalLinkAlt, FaStar, FaCode, FaDatabase, FaCloud, FaChartLine, FaMoon, FaSun } from "react-icons/fa";
+import ContactForm from "./components/ContactForm";
 
 const RESUME_URL = "/resume.pdf";
 
@@ -545,19 +546,25 @@ export default function App() {
             I'm always interested in new opportunities and collaborations. 
             Feel free to reach out if you'd like to discuss potential projects or opportunities.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            {contactLinks.map((link, i) => (
-              <a 
-                key={i} 
-                href={link.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-white/20 backdrop-blur-sm p-4 rounded-full hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
-                title={link.label}
-              >
-                {link.icon}
-              </a>
-            ))}
+          <ContactForm />
+          
+          {/* Social Links */}
+          <div className="mt-12 pt-8 border-t border-white/20">
+            <h4 className="text-xl font-semibold text-white mb-6">Connect with me on social media</h4>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              {contactLinks.map((link, i) => (
+                <a 
+                  key={i} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white/20 backdrop-blur-sm p-4 rounded-full hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                  title={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
