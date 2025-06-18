@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaArrowUp, FaExternalLinkAlt, FaStar, FaCode, FaDatabase, FaCloud, FaChartLine, FaMoon, FaSun } from "react-icons/fa";
-import Background3D from "./components/Background3D";
 
 const RESUME_URL = "/resume.pdf";
 
@@ -343,9 +342,8 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="about" className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-br from-transparent via-blue-50/30 to-indigo-50/30 dark:from-transparent dark:via-gray-900/30 dark:to-gray-800/30">
-        <Background3D />
-        <div className="max-w-7xl mx-auto relative z-10">
+      <section id="about" className="pt-24 pb-16 px-4">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block p-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-6 animate-pulse-slow">
               <div className="w-32 h-32 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white text-4xl font-bold animate-[float_3s_ease-in-out_infinite]">
@@ -355,8 +353,8 @@ export default function App() {
             <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent animate-fade-in-up">
               Sathvik Sanka
             </h1>
-            <h2 className="text-2xl md:text-3xl text-gray-700 mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>ML Software Engineer & Data Engineer</h2>
-            <p className="text-lg md:text-xl max-w-4xl mx-auto text-gray-600 mb-8 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+            <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>ML Software Engineer & Data Engineer</h2>
+            <p className="text-lg md:text-xl max-w-4xl mx-auto text-gray-600 dark:text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               Results-driven engineer with 3+ years experience delivering AI and data solutions across e-commerce, healthcare, and consumer goods. 
               Expert in machine learning, cloud infrastructure, and production data pipelines that drive business impact.
             </p>
@@ -364,9 +362,9 @@ export default function App() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
               {stats.map((stat, idx) => (
-                <div key={idx} className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
-                  <div className="text-3xl font-bold text-indigo-600 mb-2">{stat.number}</div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
+                <div key={idx} className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
+                  <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">{stat.number}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -374,7 +372,7 @@ export default function App() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{animationDelay: '1s'}}>
               <a 
                 href={RESUME_URL} 
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold flex items-center gap-2 backdrop-blur-sm"
+                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold flex items-center gap-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -387,7 +385,7 @@ export default function App() {
                     href={link.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="bg-white/80 backdrop-blur-md p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-indigo-600 border border-white/30"
+                    className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-indigo-600 dark:hover:text-indigo-400 border border-white/20 dark:border-gray-700/30"
                     title={link.label}
                   >
                     {link.icon}
