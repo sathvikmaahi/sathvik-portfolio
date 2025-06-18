@@ -155,7 +155,7 @@ const skills = {
     "HTML", "CSS", "JavaScript", "Flask", "Streamlit", "REST API's"
   ],
   "Cloud Services": [
-    "AWS (S3, SageMaker, Glue, Redshift, Athena, ECS)", "Microsoft Azure", "GCP (BigQuery)"
+    "AWS (S3, SageMaker, Glue, Redshift, Athena, ECS)", "Microsoft Azure", "GCP (BigQuery)", "IBM Cloud Services (Auto AI services, Watson Studio, Cognos Analytics)"
   ],
   "Artificial Intelligence": [
     "Unsupervised and Supervised Learning (Regression, Classification)",
