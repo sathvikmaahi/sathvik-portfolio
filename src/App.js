@@ -6,6 +6,18 @@ const RESUME_URL = "/resume.pdf";
 
 const experiences = [
   {
+    role: "Machine Learning Engineer",
+    company: "Vertx AI",
+    period: "June 2025 – Present",
+    location: "San Francisco, California",
+    bullets: [
+      "Developing and deploying machine learning models for AI-powered applications.",
+      "Collaborating with cross-functional teams to implement scalable ML solutions.",
+      "Optimizing model performance and ensuring production readiness.",
+      "Contributing to the advancement of AI technologies in a fast-paced startup environment."
+    ]
+  },
+  {
     role: "Data Engineer (Data Science)",
     company: "Gear Supply",
     period: "Jan 2025 – Apr 2025",
