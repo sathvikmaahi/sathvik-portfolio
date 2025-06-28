@@ -1,9 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaArrowUp, FaExternalLinkAlt, FaStar, FaCode, FaDatabase, FaCloud, FaChartLine, FaMoon, FaSun } from "react-icons/fa";
+import ContactForm from "./components/ContactForm";
 
 const RESUME_URL = "/resume.pdf";
 
 const experiences = [
+  {
+    role: "Machine Learning Engineer",
+    company: "Vertx AI",
+    period: "June 2025 – Present",
+    location: "San Francisco, California",
+    bullets: [
+      "Developing and deploying machine learning models for AI-powered applications.",
+      "Collaborating with cross-functional teams to implement scalable ML solutions.",
+      "Optimizing model performance and ensuring production readiness.",
+      "Contributing to the advancement of AI technologies in a fast-paced startup environment."
+    ]
+  },
   {
     role: "Data Engineer (Data Science)",
     company: "Gear Supply",
@@ -55,9 +68,14 @@ const experiences = [
     period: "Mar 2022 – Nov 2022",
     location: "Hyderabad, India",
     bullets: [
+      "Guided multiple colleges across different states in India like Tamil Nadu, Kerala, Andhra Pradesh, and Telangana on IBM services, including Watson Studio, Python, and cutting-edge technologies such as Machine Learning, deep learning, HTML, CSS, and Flask, enabling them to implement data-driven projects and achieve significant technological advancements.",
+      "Worked with multimodal data, integrating text, image, and video data to enhance machine learning models, resulting in a 20% increase in model robustness.",
+      "Led the development and testing of a machine learning model, achieved a remarkable 97% accuracy by leveraging Python, TensorFlow, and sci-kit-learn and optimized performance and resolved over 100 defects, showcasing strong programming skills.",
+      "Introduced an Application Programming Interface (API) called Flask, a Python web framework, to demonstrate how to create web applications that can serve as interfaces for machine learning models, facilitating the deployment of data-driven solutions.",
+      "Simultaneously, sharpened data preprocessing techniques by reducing inconsistencies by 25%, and advanced feature engineering for a 25% accuracy boost in lung disease detection models.",
       "Designed, trained, and deployed machine learning models for real-world applications.",
-      "Automated model training and evaluation workflows, reducing manual effort by 30%.",
-      "Mentored junior engineers and contributed to technical documentation and best practices."
+      "Automated model training and evaluation workflows, reducing manual effort by 30%."
+      
     ]
   },
   {
@@ -66,6 +84,9 @@ const experiences = [
     period: "Nov 2021 – Feb 2022",
     location: "Hyderabad, India",
     bullets: [
+      "Utilized Python programming language, with libraries such as NumPy for numerical computations, pandas for data manipulation, and sci-kit-learn for machine learning model implementation.",
+      "Applied the Random Forest Classifier algorithm, known for its high accuracy and ability to handle large data sets with multiple variables, to develop a predictive model.",
+      "Conducted comprehensive exploratory data analysis (EDA) using visualization tools like Matplotlib and Seaborn, which facilitated the identification of significant patterns and trends that informed the project's strategic direction.",
       "Developed and deployed data-driven solutions for client projects, improving business decision-making.",
       "Built and maintained data pipelines and performed data analysis for actionable insights.",
       "Collaborated with cross-functional teams to deliver end-to-end analytics solutions."
@@ -75,6 +96,17 @@ const experiences = [
 ];
 
 const projects = [
+  {
+    name: "AI powered universal data analyst",
+    desc: "A full-stack AI-powered analytics platform that lets users upload any business data format and receive intelligent insights via natural language queries. Integrates multiple Hugging Face models (DialoGPT, RoBERTa) for automated text generation, sentiment analysis, and business intelligence recommendations.",
+    tech: ["Python", "SQL", "Hugging Face Transformers", "PyTorch", "Natural Language Processing", "Sentiment Analysis"],
+    link: "",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
+    bullets: [
+      "Developed a full-stack AI-powered business analytics platform using Python, Streamlit, and Hugging Face models, enabling users to upload any business data format and receive intelligent insights through natural language queries.",
+      "Integrated multiple Hugging Face AI models (DialoGPT, RoBERTa) with PyTorch backend to provide automated text generation, sentiment analysis, and business intelligence recommendations."
+    ]
+  },
   {
     name: "Intelligent Crop Recommendation & Generative AI Advisor",
     desc: "A machine learning-powered system that recommends optimal crops based on soil, weather, and market data, enhanced with a generative AI assistant for personalized farming advice.",
@@ -155,7 +187,7 @@ const skills = {
     "HTML", "CSS", "JavaScript", "Flask", "Streamlit", "REST API's"
   ],
   "Cloud Services": [
-    "AWS (S3, SageMaker, Glue, Redshift, Athena, ECS)", "Microsoft Azure", "GCP (BigQuery)"
+    "AWS (S3, SageMaker, Glue, Redshift, Athena, ECS)", "Microsoft Azure", "GCP (BigQuery)", "IBM Cloud Services (Auto AI services, Watson Studio, Cognos Analytics)"
   ],
   "Artificial Intelligence": [
     "Unsupervised and Supervised Learning (Regression, Classification)",
@@ -185,23 +217,25 @@ const certifications = [
   { name: "AWS Certified Data Engineer (Associate)", issuer: "Amazon Web Services", year: "2024" },
   { name: "IBM Machine Learning Specialist (Associate)", issuer: "IBM", year: "2023" },
   { name: "Generative AI & Prompt Engineering", issuer: "Google Cloud", year: "2024" },
-  { name: "Deep Learning Specialization", issuer: "Coursera", year: "2023" }
+  { name: "Deep Learning Specialization", issuer: "Coursera", year: "2023" },
+  {name: "Software Engineer", issuer: "Hackerrank", year: "2025"},
+  {name: "Generative AI", issuer: "National Association of State Boards of Accountancy (NASBA)", year: "2025"}
 ];
 
 const education = [
   {
-    degree: "M.S. Information Technology",
+    degree: "Master's in Information Technology",
     school: "University of Cincinnati",
     date: "Jan 2024 – May 2025",
-    gpa: "3.8/4.0",
-    highlights: ["Machine Learning", "Data Science", "Cloud Computing"]
+    gpa: "4.0/4.0",
+    highlights: ["Information security and assurance", "Principles of Cybersecurity", "Machine learning and data mining", "Data driven cybersecurity", "Microsoft Azure Services", "Database management system",  "Google Cloud Platform", "Infrastructure Sustainability"]
   },
   {
-    degree: "B.Tech. Electronics & Communications Engineering",
-    school: "Jb Institute Of Engineering and Technology",
-    date: "2017 - 2021",
+    degree: "Bachelor's in Electronics & Communications Engineering",
+    school: "JB Institute Of Engineering and Technology",
+    date: "2019 - 2023",
     gpa: "3.7/4.0",
-    highlights: ["Signal Processing", "Digital Communications", "VLSI Design"]
+    highlights: ["Signal Processing", "Digital Communications", "VLSI Design","Computer Architecture", "Computer Networks (TCP/IP, UDP)", "Mathematics (Statistics, Linear Algebra)"]
   }
 ];
 
@@ -214,8 +248,8 @@ const contactLinks = [
 const stats = [
   { number: "3+", label: "Years Experience" },
   { number: "15+", label: "Projects Completed" },
-  { number: "4", label: "Certifications" },
-  { number: "95%", label: "Client Satisfaction" }
+  { number: "6", label: "Certifications" },
+  { number: "1000+", label: "Hours of Learning" }
 ];
 
 // Custom hook to detect if an element is in view
@@ -335,16 +369,16 @@ export default function App() {
       <section id="about" className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-block p-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-6">
+            <div className="inline-block p-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-6 animate-pulse-slow">
               <div className="w-32 h-32 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white text-4xl font-bold animate-[float_3s_ease-in-out_infinite]">
                 SS
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent animate-fade-in-up">
               Sathvik Sanka
             </h1>
-            <h2 className="text-2xl md:text-3xl text-gray-700 mb-6">ML Software Engineer & Data Engineer</h2>
-            <p className="text-lg md:text-xl max-w-4xl mx-auto text-gray-600 mb-8 leading-relaxed">
+            <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>ML Software Engineer & Data Engineer</h2>
+            <p className="text-lg md:text-xl max-w-4xl mx-auto text-gray-600 dark:text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               Results-driven engineer with 3+ years experience delivering AI and data solutions across e-commerce, healthcare, and consumer goods. 
               Expert in machine learning, cloud infrastructure, and production data pipelines that drive business impact.
             </p>
@@ -352,14 +386,14 @@ export default function App() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
               {stats.map((stat, idx) => (
-                <div key={idx} className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
-                  <div className="text-3xl font-bold text-indigo-600 mb-2">{stat.number}</div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
+                <div key={idx} className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
+                  <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">{stat.number}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{animationDelay: '1s'}}>
               <a 
                 href={RESUME_URL} 
                 className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold flex items-center gap-2"
@@ -375,7 +409,7 @@ export default function App() {
                     href={link.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="bg-white/70 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-indigo-600"
+                    className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-indigo-600 dark:hover:text-indigo-400 border border-white/20 dark:border-gray-700/30"
                     title={link.label}
                   >
                     {link.icon}
@@ -535,19 +569,25 @@ export default function App() {
             I'm always interested in new opportunities and collaborations. 
             Feel free to reach out if you'd like to discuss potential projects or opportunities.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            {contactLinks.map((link, i) => (
-              <a 
-                key={i} 
-                href={link.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-white/20 backdrop-blur-sm p-4 rounded-full hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
-                title={link.label}
-              >
-                {link.icon}
-              </a>
-            ))}
+          <ContactForm />
+          
+          {/* Social Links */}
+          <div className="mt-12 pt-8 border-t border-white/20">
+            <h4 className="text-xl font-semibold text-white mb-6">Connect with me on social media</h4>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              {contactLinks.map((link, i) => (
+                <a 
+                  key={i} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white/20 backdrop-blur-sm p-4 rounded-full hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                  title={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -555,7 +595,7 @@ export default function App() {
       {/* Footer */}
       <footer className="py-8 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-400">© {new Date().getFullYear()} Sathvik Sanka. Built with React & Tailwind CSS.</p>
+          <p className="text-gray-400">© {new Date().getFullYear()} Sathvik Sanka. Warning: May cause sudden inspiration..</p>
         </div>
       </footer>
 
@@ -577,6 +617,39 @@ export default function App() {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate 20s linear infinite;
 }
 `}
 </style>
