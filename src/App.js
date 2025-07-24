@@ -195,7 +195,7 @@ const skills = {
     "C", "Python", "R", "SQL", "PostgreSQL", "MongoDB"
   ],
   "Web Technologies": [
-    "HTML", "CSS", "JavaScript", "Flask", "Streamlit", "REST API's"
+    "HTML", "CSS", "JavaScript", "Flask", "Streamlit", "REST API's", "FastAPI"
   ],
   "Cloud Services": [
     "AWS (S3, SageMaker, Glue, Redshift, Athena, ECS)", "Microsoft Azure", "GCP (BigQuery)", "IBM Cloud Services (Auto AI services, Watson Studio, Cognos Analytics)"
@@ -211,7 +211,7 @@ const skills = {
     "Generative AI"
   ],
   "Framework & Libraries": [
-    "PyTorch", "Keras", "Scikit-Learn", "Pandas", "NumPy", "Seaborn", "Matplotlib", "Hugging Face", "LangChain", "OpenAI", "NLTK", "Spacy"
+    "PyTorch", "Keras", "Scikit-Learn", "Pandas", "NumPy", "Seaborn", "Matplotlib", "Hugging Face", "LangChain", "OpenAI", "NLTK", "Spacy", "FastAPI"
   ],
   "Data Engineering": [
     "PySpark", "Apache Airflow", "Databricks", "ETL/ELT Pipelines", "Data Modeling", "Snowflake"
@@ -296,21 +296,21 @@ function TimelineItem({ exp, idx }) {
         <span className={`block w-6 h-6 rounded-full bg-gradient-to-br from-primary to-secondary border-4 border-white dark:border-gray-900 shadow-lg transition-transform duration-700 ${inView ? 'scale-110' : 'scale-75'}`} />
       </div>
       <div className={`md:w-1/2 ${idx % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}> 
-        <div className="bg-background/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/20 dark:border-gray-800/40 transition-colors duration-500">
+        <div className="bg-[#23272f]/90 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
             <div>
-              <h4 className="text-2xl font-bold text-gray-800 dark:text-primary mb-2">{exp.role}</h4>
+              <h4 className="text-2xl font-bold text-[#e3e6ed] mb-2">{exp.role}</h4>
               <p className="text-xl text-primary font-semibold">{exp.company}</p>
             </div>
             <div className="text-right mt-4 lg:mt-0">
-              <p className="text-gray-600 dark:text-gray-300 font-medium">{exp.period}</p>
-              <p className="text-gray-500 dark:text-gray-400">{exp.location}</p>
+              <p className="text-[#b0b3bb] font-medium">{exp.period}</p>
+              <p className="text-[#b0b3bb]">{exp.location}</p>
             </div>
           </div>
           <ul className="space-y-3">
             {exp.bullets.map((bullet, i) => (
-              <li key={i} className="flex items-start gap-3 text-gray-700 dark:text-gray-200">
-                <FaStar className="text-primary dark:text-primary mt-1 flex-shrink-0" size={12} />
+              <li key={i} className="flex items-start gap-3 text-[#b0b3bb]">
+                <FaStar className="text-primary mt-1 flex-shrink-0" size={12} />
                 <span>{bullet}</span>
               </li>
             ))}
@@ -324,34 +324,63 @@ function TimelineItem({ exp, idx }) {
 
 export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
 
+  // Section refs for scrollspy
+  const aboutRef = useRef(null);
+  const experienceRef = useRef(null);
+  const projectsRef = useRef(null);
+  const skillsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  // Smooth scroll handler
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    const sectionRefs = {
+      about: aboutRef,
+      experience: experienceRef,
+      projects: projectsRef,
+      skills: skillsRef,
+      contact: contactRef,
+    };
+    sectionRefs[section]?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Scrollspy effect
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
+      const sections = [
+        { id: 'about', ref: aboutRef },
+        { id: 'experience', ref: experienceRef },
+        { id: 'projects', ref: projectsRef },
+        { id: 'skills', ref: skillsRef },
+        { id: 'contact', ref: contactRef },
+      ];
+      const scrollPos = window.scrollY + 120; // offset for nav height
+      let current = 'about';
+      for (const section of sections) {
+        if (section.ref.current) {
+          const top = section.ref.current.offsetTop;
+          if (scrollPos >= top) {
+            current = section.id;
+          }
+        }
+      }
+      setActiveSection(current);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <div className={
-      `font-sans min-h-screen transition-colors duration-500 ${darkMode ? 'bg-background text-text' : 'bg-background text-text'}`
-    }>
+    <div className="font-sans min-h-screen bg-[#23272f] text-[#e3e6ed] transition-colors duration-500">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 shadow-lg transition-colors duration-500 ${darkMode ? 'bg-primary/90' : 'bg-background/90 backdrop-blur-md'}`}>
+      <nav className="fixed top-0 w-full z-50 shadow-xl backdrop-blur-lg bg-[#23272f]/90 border-b border-white/10 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center gap-3">
@@ -359,37 +388,50 @@ export default function App() {
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Sathvik Sanka</span>
             </div>
             <div className="hidden md:flex space-x-8">
-              <a href="#about" className="hover:text-primary transition">About</a>
-              <a href="#experience" className="hover:text-primary transition">Experience</a>
-              <a href="#projects" className="hover:text-primary transition">Projects</a>
-              <a href="#skills" className="hover:text-primary transition">Skills</a>
-              <a href="#contact" className="hover:text-primary transition">Contact</a>
+              {[
+                { id: 'about', label: 'About' },
+                { id: 'experience', label: 'Experience' },
+                { id: 'projects', label: 'Projects' },
+                { id: 'skills', label: 'Skills' },
+                { id: 'contact', label: 'Contact' },
+              ].map((nav) => (
+                <button
+                  key={nav.id}
+                  onClick={() => handleNavClick(nav.id)}
+                  className={`relative px-2 py-1 font-medium transition text-base focus:outline-none
+                    ${activeSection === nav.id ? 'text-primary' : 'text-[#e3e6ed]'}
+                    group
+                  `}
+                  style={{ background: 'none', border: 'none' }}
+                >
+                  {nav.label}
+                  <span
+                    className={`absolute left-0 -bottom-1 w-full h-0.5 rounded bg-primary transition-all duration-300
+                      ${activeSection === nav.id ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}
+                      group-hover:opacity-100 group-hover:scale-x-100
+                    `}
+                  />
+                </button>
+              ))}
             </div>
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="ml-4 p-2 rounded-full bg-accent hover:bg-secondary transition-colors duration-300"
-              title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {darkMode ? <FaSun className="text-secondary" size={20} /> : <FaMoon className="text-primary" size={20} />}
-            </button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="about" className="pt-24 pb-16 px-4">
+      <section id="about" ref={aboutRef} className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-block p-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-6 animate-pulse-slow">
-              <div className="w-32 h-32 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white text-4xl font-bold animate-[float_3s_ease-in-out_infinite]">
+            <div className="inline-block p-2 bg-gradient-to-r from-primary to-secondary rounded-full mb-6 animate-pulse-slow">
+              <div className="w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-4xl font-bold animate-[float_3s_ease-in-out_infinite]">
                 SS
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in-up">
               Sathvik Sanka
             </h1>
-            <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>ML Software Engineer & Data Engineer</h2>
-            <p className="text-lg md:text-xl max-w-4xl mx-auto text-gray-600 dark:text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+            <h2 className="text-2xl md:text-3xl text-[#e3e6ed] mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>ML Software Engineer & Data Engineer</h2>
+            <p className="text-lg md:text-xl max-w-4xl mx-auto text-[#b0b3bb] mb-8 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               Results-driven engineer with 3+ years experience delivering AI and data solutions across e-commerce, healthcare, and consumer goods. 
               Expert in machine learning, cloud infrastructure, and production data pipelines that drive business impact.
             </p>
@@ -397,9 +439,9 @@ export default function App() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
               {stats.map((stat, idx) => (
-                <div key={idx} className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
-                  <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">{stat.number}</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
+                <div key={idx} className="bg-[#23272f]/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
+                  <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
+                  <div className="text-sm text-[#b0b3bb]">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -420,7 +462,7 @@ export default function App() {
                     href={link.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-indigo-600 dark:hover:text-indigo-400 border border-white/20 dark:border-gray-700/30"
+                    className="bg-[#23272f]/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-primary border border-white/20"
                     title={link.label}
                   >
                     {link.icon}
@@ -433,11 +475,11 @@ export default function App() {
       </section>
 
       {/* Experience Section as Timeline */}
-      <section id="experience" className="py-16 px-4 bg-background/50 dark:bg-gray-900/60 transition-colors duration-500">
+      <section id="experience" ref={experienceRef} className="py-16 px-4 bg-[#23272f]/50 transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Professional Experience</h3>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">A journey through my professional growth and achievements</p>
+            <h3 className="text-4xl font-bold text-[#e3e6ed] mb-4">Professional Experience</h3>
+            <p className="text-lg text-[#b0b3bb] max-w-2xl mx-auto">A journey through my professional growth and achievements</p>
           </div>
           <div className="relative">
             {/* Vertical line */}
@@ -452,15 +494,15 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 px-4">
+      <section id="projects" ref={projectsRef} className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Innovative solutions that demonstrate technical expertise and business impact</p>
+            <h3 className="text-4xl font-bold text-[#e3e6ed] mb-4">Featured Projects</h3>
+            <p className="text-lg text-[#b0b3bb] max-w-2xl mx-auto">Innovative solutions that demonstrate technical expertise and business impact</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             {projects.map((project, idx) => (
-              <div key={idx} className="bg-background/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden transform hover:scale-105 transition-all duration-300">
+              <div key={idx} className="bg-[#23272f]/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden transform hover:scale-105 transition-all duration-300">
                 <div className="h-48 bg-gradient-to-br from-primary to-secondary relative overflow-hidden">
                   <img 
                     src={project.image} 
@@ -473,8 +515,8 @@ export default function App() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-800 mb-3">{project.name}</h4>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{project.desc}</p>
+                  <h4 className="text-xl font-bold text-[#e3e6ed] mb-3">{project.name}</h4>
+                  <p className="text-[#b0b3bb] mb-4 leading-relaxed">{project.desc}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, i) => (
                       <span key={i} className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
@@ -500,21 +542,21 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 px-4 bg-background/50">
+      <section id="skills" ref={skillsRef} className="py-16 px-4 bg-[#23272f]/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-gray-800 mb-4">Technical Skills</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Comprehensive expertise across the data and AI ecosystem</p>
+            <h3 className="text-4xl font-bold text-[#e3e6ed] mb-4">Technical Skills</h3>
+            <p className="text-lg text-[#b0b3bb] max-w-2xl mx-auto">Comprehensive expertise across the data and AI ecosystem</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             {Object.entries(skills).map(([category, skillList]) => (
-              <div key={category} className="bg-background/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20">
+              <div key={category} className="bg-[#23272f]/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20">
                 <div className="flex items-center gap-3 mb-4">
                   {category.includes("ML") && <FaCode className="text-primary" size={24} />}
                   {category.includes("Data") && <FaDatabase className="text-primary" size={24} />}
                   {category.includes("Cloud") && <FaCloud className="text-primary" size={24} />}
                   {category.includes("Analytics") && <FaChartLine className="text-primary" size={24} />}
-                  <h4 className="text-xl font-bold text-gray-800">{category}</h4>
+                  <h4 className="text-xl font-bold text-[#e3e6ed]">{category}</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {skillList.map((skill, i) => (
@@ -535,13 +577,13 @@ export default function App() {
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Certifications */}
             <div>
-              <h3 className="text-3xl font-bold text-gray-800 mb-6">Certifications</h3>
+              <h3 className="text-3xl font-bold text-[#e3e6ed] mb-6">Certifications</h3>
               <div className="space-y-4">
                 {certifications.map((cert, idx) => (
-                  <div key={idx} className="bg-background/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
-                    <h4 className="font-semibold text-gray-800 mb-2">{cert.name}</h4>
+                  <div key={idx} className="bg-[#23272f]/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
+                    <h4 className="font-semibold text-[#e3e6ed] mb-2">{cert.name}</h4>
                     <p className="text-primary mb-1">{cert.issuer}</p>
-                    <p className="text-sm text-gray-500">{cert.year}</p>
+                    <p className="text-sm text-[#b0b3bb]">{cert.year}</p>
                   </div>
                 ))}
               </div>
@@ -549,14 +591,14 @@ export default function App() {
 
             {/* Education */}
             <div>
-              <h3 className="text-3xl font-bold text-gray-800 mb-6">Education</h3>
+              <h3 className="text-3xl font-bold text-[#e3e6ed] mb-6">Education</h3>
               <div className="space-y-4">
                 {education.map((edu, idx) => (
-                  <div key={idx} className="bg-background/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
-                    <h4 className="font-semibold text-gray-800 mb-2">{edu.degree}</h4>
+                  <div key={idx} className="bg-[#23272f]/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
+                    <h4 className="font-semibold text-[#e3e6ed] mb-2">{edu.degree}</h4>
                     <p className="text-primary mb-1">{edu.school}</p>
-                    <p className="text-sm text-gray-500 mb-2">{edu.date}</p>
-                    <p className="text-sm text-gray-600 mb-2">GPA: {edu.gpa}</p>
+                    <p className="text-sm text-[#b0b3bb] mb-2">{edu.date}</p>
+                    <p className="text-sm text-[#b0b3bb] mb-2">GPA: {edu.gpa}</p>
                     <div className="flex flex-wrap gap-2">
                       {edu.highlights.map((highlight, i) => (
                         <span key={i} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
@@ -573,9 +615,9 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 bg-gradient-to-r from-primary to-secondary">
+      <section id="contact" ref={contactRef} className="py-16 px-4 bg-gradient-to-r from-primary to-secondary">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-4xl font-bold text-white mb-6">Let's Connect</h3>
+          <h3 className="text-4xl font-bold text-[#e3e6ed] mb-6">Let's Connect</h3>
           <p className="text-xl text-primary/20 mb-8">
             I'm always interested in new opportunities and collaborations. 
             Feel free to reach out if you'd like to discuss potential projects or opportunities.
@@ -584,7 +626,7 @@ export default function App() {
           
           {/* Social Links */}
           <div className="mt-12 pt-8 border-t border-white/20">
-            <h4 className="text-xl font-semibold text-white mb-6">Connect with me on social media</h4>
+            <h4 className="text-xl font-semibold text-[#e3e6ed] mb-6">Connect with me on social media</h4>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               {contactLinks.map((link, i) => (
                 <a 
@@ -604,9 +646,9 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-gray-900 text-white">
+      <footer className="py-8 bg-[#23272f] text-[#e3e6ed]">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-400">© {new Date().getFullYear()} Sathvik Sanka. Warning: May cause sudden inspiration..</p>
+          <p className="text-[#b0b3bb]">© {new Date().getFullYear()} Sathvik Sanka. Warning: May cause sudden inspiration..</p>
         </div>
       </footer>
 
