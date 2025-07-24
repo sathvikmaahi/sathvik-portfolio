@@ -282,14 +282,14 @@ function TimelineItem({ exp, idx }) {
     >
       {/* Timeline dot */}
       <div className="hidden md:block absolute left-1/2 top-8 transform -translate-x-1/2 z-10">
-        <span className={`block w-6 h-6 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 border-4 border-white dark:border-gray-900 shadow-lg transition-transform duration-700 ${inView ? 'scale-110' : 'scale-75'}`} />
+        <span className={`block w-6 h-6 rounded-full bg-gradient-to-br from-primary to-secondary border-4 border-white dark:border-gray-900 shadow-lg transition-transform duration-700 ${inView ? 'scale-110' : 'scale-75'}`} />
       </div>
       <div className={`md:w-1/2 ${idx % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}> 
-        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/20 dark:border-gray-800/40 transition-colors duration-500">
+        <div className="bg-background/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/20 dark:border-gray-800/40 transition-colors duration-500">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
             <div>
-              <h4 className="text-2xl font-bold text-gray-800 dark:text-indigo-200 mb-2">{exp.role}</h4>
-              <p className="text-xl text-indigo-600 dark:text-indigo-400 font-semibold">{exp.company}</p>
+              <h4 className="text-2xl font-bold text-gray-800 dark:text-primary mb-2">{exp.role}</h4>
+              <p className="text-xl text-primary font-semibold">{exp.company}</p>
             </div>
             <div className="text-right mt-4 lg:mt-0">
               <p className="text-gray-600 dark:text-gray-300 font-medium">{exp.period}</p>
@@ -299,7 +299,7 @@ function TimelineItem({ exp, idx }) {
           <ul className="space-y-3">
             {exp.bullets.map((bullet, i) => (
               <li key={i} className="flex items-start gap-3 text-gray-700 dark:text-gray-200">
-                <FaStar className="text-indigo-500 dark:text-indigo-400 mt-1 flex-shrink-0" size={12} />
+                <FaStar className="text-primary dark:text-primary mt-1 flex-shrink-0" size={12} />
                 <span>{bullet}</span>
               </li>
             ))}
@@ -337,29 +337,29 @@ export default function App() {
 
   return (
     <div className={
-      `font-sans min-h-screen transition-colors duration-500 ${darkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 text-gray-100' : 'bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 text-gray-900'}`
+      `font-sans min-h-screen transition-colors duration-500 ${darkMode ? 'bg-background text-text' : 'bg-background text-text'}`
     }>
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 shadow-lg transition-colors duration-500 ${darkMode ? 'bg-gray-900/90' : 'bg-white/90 backdrop-blur-md'}`}>
+      <nav className={`fixed top-0 w-full z-50 shadow-lg transition-colors duration-500 ${darkMode ? 'bg-primary/90' : 'bg-background/90 backdrop-blur-md'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center gap-3">
               <img src="/ss-logo.svg" alt="SS Logo" className="w-10 h-10 rounded-lg shadow-md" />
-              <span className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-purple-400 bg-clip-text text-transparent">Sathvik Sanka</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Sathvik Sanka</span>
             </div>
             <div className="hidden md:flex space-x-8">
-              <a href="#about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">About</a>
-              <a href="#experience" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Experience</a>
-              <a href="#projects" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Projects</a>
-              <a href="#skills" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Skills</a>
-              <a href="#contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</a>
+              <a href="#about" className="hover:text-primary transition">About</a>
+              <a href="#experience" className="hover:text-primary transition">Experience</a>
+              <a href="#projects" className="hover:text-primary transition">Projects</a>
+              <a href="#skills" className="hover:text-primary transition">Skills</a>
+              <a href="#contact" className="hover:text-primary transition">Contact</a>
             </div>
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="ml-4 p-2 rounded-full bg-indigo-100 dark:bg-gray-800 hover:bg-indigo-200 dark:hover:bg-gray-700 transition-colors duration-300"
+              className="ml-4 p-2 rounded-full bg-accent hover:bg-secondary transition-colors duration-300"
               title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {darkMode ? <FaSun className="text-yellow-400" size={20} /> : <FaMoon className="text-indigo-700" size={20} />}
+              {darkMode ? <FaSun className="text-secondary" size={20} /> : <FaMoon className="text-primary" size={20} />}
             </button>
           </div>
         </div>
@@ -369,12 +369,12 @@ export default function App() {
       <section id="about" className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-block p-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-6 animate-pulse-slow">
-              <div className="w-32 h-32 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white text-4xl font-bold animate-[float_3s_ease-in-out_infinite]">
+            <div className="inline-block p-2 bg-gradient-to-r from-primary to-secondary rounded-full mb-6 animate-pulse-slow">
+              <div className="w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-4xl font-bold animate-[float_3s_ease-in-out_infinite]">
                 SS
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in-up">
               Sathvik Sanka
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>ML Software Engineer & Data Engineer</h2>
@@ -386,8 +386,8 @@ export default function App() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
               {stats.map((stat, idx) => (
-                <div key={idx} className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
-                  <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">{stat.number}</div>
+                <div key={idx} className="bg-background/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
+                  <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
                   <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
                 </div>
               ))}
@@ -396,7 +396,7 @@ export default function App() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{animationDelay: '1s'}}>
               <a 
                 href={RESUME_URL} 
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold flex items-center gap-2"
+                className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold flex items-center gap-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -409,7 +409,7 @@ export default function App() {
                     href={link.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-indigo-600 dark:hover:text-indigo-400 border border-white/20 dark:border-gray-700/30"
+                    className="bg-background/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-primary dark:hover:text-secondary border border-white/20 dark:border-gray-700/30"
                     title={link.label}
                   >
                     {link.icon}
@@ -422,7 +422,7 @@ export default function App() {
       </section>
 
       {/* Experience Section as Timeline */}
-      <section id="experience" className="py-16 px-4 bg-white/50 dark:bg-gray-900/60 transition-colors duration-500">
+      <section id="experience" className="py-16 px-4 bg-background/50 dark:bg-gray-900/60 transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Professional Experience</h3>
@@ -430,7 +430,7 @@ export default function App() {
           </div>
           <div className="relative">
             {/* Vertical line */}
-            <div className="hidden md:block absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-indigo-400 via-indigo-200 to-purple-400 dark:from-indigo-700 dark:via-indigo-900 dark:to-purple-900 transform -translate-x-1/2 z-0 transition-colors duration-500" />
+            <div className="hidden md:block absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-primary via-primary/50 to-secondary dark:from-primary dark:via-primary/50 dark:to-secondary transform -translate-x-1/2 z-0 transition-colors duration-500" />
             <div className="space-y-12">
               {experiences.map((exp, idx) => (
                 <TimelineItem key={idx} exp={exp} idx={idx} />
@@ -449,14 +449,14 @@ export default function App() {
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             {projects.map((project, idx) => (
-              <div key={idx} className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden transform hover:scale-105 transition-all duration-300">
-                <div className="h-48 bg-gradient-to-br from-indigo-400 to-purple-500 relative overflow-hidden">
+              <div key={idx} className="bg-background/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div className="h-48 bg-gradient-to-br from-primary to-secondary relative overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.name}
                     className="w-full h-full object-cover opacity-20"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/80 to-purple-600/80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <FaCode className="text-white" size={48} />
                   </div>
@@ -466,7 +466,7 @@ export default function App() {
                   <p className="text-gray-600 mb-4 leading-relaxed">{project.desc}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, i) => (
-                      <span key={i} className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">
+                      <span key={i} className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
                         {tech}
                       </span>
                     ))}
@@ -476,7 +476,7 @@ export default function App() {
                       href={project.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium"
+                      className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium"
                     >
                       View Project <FaExternalLinkAlt size={14} />
                     </a>
@@ -489,7 +489,7 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 px-4 bg-white/50">
+      <section id="skills" className="py-16 px-4 bg-background/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-800 mb-4">Technical Skills</h3>
@@ -497,17 +497,17 @@ export default function App() {
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             {Object.entries(skills).map(([category, skillList]) => (
-              <div key={category} className="bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20">
+              <div key={category} className="bg-background/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20">
                 <div className="flex items-center gap-3 mb-4">
-                  {category.includes("ML") && <FaCode className="text-indigo-600" size={24} />}
-                  {category.includes("Data") && <FaDatabase className="text-indigo-600" size={24} />}
-                  {category.includes("Cloud") && <FaCloud className="text-indigo-600" size={24} />}
-                  {category.includes("Analytics") && <FaChartLine className="text-indigo-600" size={24} />}
+                  {category.includes("ML") && <FaCode className="text-primary" size={24} />}
+                  {category.includes("Data") && <FaDatabase className="text-primary" size={24} />}
+                  {category.includes("Cloud") && <FaCloud className="text-primary" size={24} />}
+                  {category.includes("Analytics") && <FaChartLine className="text-primary" size={24} />}
                   <h4 className="text-xl font-bold text-gray-800">{category}</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {skillList.map((skill, i) => (
-                    <span key={i} className="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 px-3 py-2 rounded-full text-sm font-medium border border-indigo-200">
+                    <span key={i} className="bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-3 py-2 rounded-full text-sm font-medium border border-primary/20">
                       {skill}
                     </span>
                   ))}
@@ -527,9 +527,9 @@ export default function App() {
               <h3 className="text-3xl font-bold text-gray-800 mb-6">Certifications</h3>
               <div className="space-y-4">
                 {certifications.map((cert, idx) => (
-                  <div key={idx} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
+                  <div key={idx} className="bg-background/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
                     <h4 className="font-semibold text-gray-800 mb-2">{cert.name}</h4>
-                    <p className="text-indigo-600 mb-1">{cert.issuer}</p>
+                    <p className="text-primary mb-1">{cert.issuer}</p>
                     <p className="text-sm text-gray-500">{cert.year}</p>
                   </div>
                 ))}
@@ -541,14 +541,14 @@ export default function App() {
               <h3 className="text-3xl font-bold text-gray-800 mb-6">Education</h3>
               <div className="space-y-4">
                 {education.map((edu, idx) => (
-                  <div key={idx} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
+                  <div key={idx} className="bg-background/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
                     <h4 className="font-semibold text-gray-800 mb-2">{edu.degree}</h4>
-                    <p className="text-indigo-600 mb-1">{edu.school}</p>
+                    <p className="text-primary mb-1">{edu.school}</p>
                     <p className="text-sm text-gray-500 mb-2">{edu.date}</p>
                     <p className="text-sm text-gray-600 mb-2">GPA: {edu.gpa}</p>
                     <div className="flex flex-wrap gap-2">
                       {edu.highlights.map((highlight, i) => (
-                        <span key={i} className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs">
+                        <span key={i} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
                           {highlight}
                         </span>
                       ))}
@@ -562,10 +562,10 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 bg-gradient-to-r from-indigo-600 to-purple-600">
+      <section id="contact" className="py-16 px-4 bg-gradient-to-r from-primary to-secondary">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-4xl font-bold text-white mb-6">Let's Connect</h3>
-          <p className="text-xl text-indigo-100 mb-8">
+          <p className="text-xl text-primary/20 mb-8">
             I'm always interested in new opportunities and collaborations. 
             Feel free to reach out if you'd like to discuss potential projects or opportunities.
           </p>
@@ -581,7 +581,7 @@ export default function App() {
                   href={link.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-white/20 backdrop-blur-sm p-4 rounded-full hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                  className="bg-background/20 backdrop-blur-sm p-4 rounded-full hover:bg-background/30 transition-all duration-300 transform hover:scale-110"
                   title={link.label}
                 >
                   {link.icon}
@@ -603,7 +603,7 @@ export default function App() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 z-50"
+          className="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 z-50"
         >
           <FaArrowUp size={20} />
         </button>
