@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaArrowUp, FaExternalLinkAlt, FaStar, FaCode, FaDatabase, FaCloud, FaChartLine, FaMoon, FaSun } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaArrowUp, FaExternalLinkAlt, FaStar, FaCode, FaDatabase, FaCloud, FaChartLine } from "react-icons/fa";
 import ContactForm from "./components/ContactForm";
 
 const RESUME_URL = "/resume.pdf";
