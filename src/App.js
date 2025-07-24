@@ -96,6 +96,17 @@ const experiences = [
 ];
 
 const projects = [
+    {
+    name: "AI powered universal data analyst",
+    desc: "A full-stack AI-powered analytics platform that lets users upload any business data format and receive intelligent insights via natural language queries. Integrates multiple Hugging Face models (DialoGPT, RoBERTa) for automated text generation, sentiment analysis, and business intelligence recommendations.",
+    tech: ["Python", "SQL", "Hugging Face Transformers", "PyTorch", "Natural Language Processing", "Sentiment Analysis"],
+    link: "",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
+    bullets: [
+      "Developed a full-stack AI-powered business analytics platform using Python, Streamlit, and Hugging Face models, enabling users to upload any business data format and receive intelligent insights through natural language queries.",
+      "Integrated multiple Hugging Face AI models (DialoGPT, RoBERTa) with PyTorch backend to provide automated text generation, sentiment analysis, and business intelligence recommendations."
+    ]
+  },
   {
     name: "AI powered universal data analyst",
     desc: "A full-stack AI-powered analytics platform that lets users upload any business data format and receive intelligent insights via natural language queries. Integrates multiple Hugging Face models (DialoGPT, RoBERTa) for automated text generation, sentiment analysis, and business intelligence recommendations.",
@@ -369,12 +380,12 @@ export default function App() {
       <section id="about" className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-block p-2 bg-gradient-to-r from-primary to-secondary rounded-full mb-6 animate-pulse-slow">
-              <div className="w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-4xl font-bold animate-[float_3s_ease-in-out_infinite]">
+            <div className="inline-block p-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-6 animate-pulse-slow">
+              <div className="w-32 h-32 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white text-4xl font-bold animate-[float_3s_ease-in-out_infinite]">
                 SS
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent animate-fade-in-up">
               Sathvik Sanka
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>ML Software Engineer & Data Engineer</h2>
@@ -386,8 +397,8 @@ export default function App() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
               {stats.map((stat, idx) => (
-                <div key={idx} className="bg-background/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
-                  <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
+                <div key={idx} className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" style={{animationDelay: `${0.6 + idx * 0.1}s`}}>
+                  <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">{stat.number}</div>
                   <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
                 </div>
               ))}
@@ -409,7 +420,7 @@ export default function App() {
                     href={link.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="bg-background/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-primary dark:hover:text-secondary border border-white/20 dark:border-gray-700/30"
+                    className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:text-indigo-600 dark:hover:text-indigo-400 border border-white/20 dark:border-gray-700/30"
                     title={link.label}
                   >
                     {link.icon}
@@ -581,7 +592,7 @@ export default function App() {
                   href={link.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-background/20 backdrop-blur-sm p-4 rounded-full hover:bg-background/30 transition-all duration-300 transform hover:scale-110"
+                  className="bg-white/20 backdrop-blur-sm p-4 rounded-full hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
                   title={link.label}
                 >
                   {link.icon}
