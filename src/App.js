@@ -96,22 +96,11 @@ const experiences = [
 ];
 
 const projects = [
-    {
-    name: "AI powered universal data analyst",
-    desc: "A full-stack AI-powered analytics platform that lets users upload any business data format and receive intelligent insights via natural language queries. Integrates multiple Hugging Face models (DialoGPT, RoBERTa) for automated text generation, sentiment analysis, and business intelligence recommendations.",
-    tech: ["Python", "SQL", "Hugging Face Transformers", "PyTorch", "Natural Language Processing", "Sentiment Analysis"],
-    link: "",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
-    bullets: [
-      "Developed a full-stack AI-powered business analytics platform using Python, Streamlit, and Hugging Face models, enabling users to upload any business data format and receive intelligent insights through natural language queries.",
-      "Integrated multiple Hugging Face AI models (DialoGPT, RoBERTa) with PyTorch backend to provide automated text generation, sentiment analysis, and business intelligence recommendations."
-    ]
-  },
   {
     name: "AI powered universal data analyst",
     desc: "A full-stack AI-powered analytics platform that lets users upload any business data format and receive intelligent insights via natural language queries. Integrates multiple Hugging Face models (DialoGPT, RoBERTa) for automated text generation, sentiment analysis, and business intelligence recommendations.",
     tech: ["Python", "SQL", "Hugging Face Transformers", "PyTorch", "Natural Language Processing", "Sentiment Analysis"],
-    link: "",
+    link: "https://github.com/sathvikmaahi/AI-powered-universal-data-analyst",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
     bullets: [
       "Developed a full-stack AI-powered business analytics platform using Python, Streamlit, and Hugging Face models, enabling users to upload any business data format and receive intelligent insights through natural language queries.",
@@ -122,28 +111,28 @@ const projects = [
     name: "Intelligent Crop Recommendation & Generative AI Advisor",
     desc: "A machine learning-powered system that recommends optimal crops based on soil, weather, and market data, enhanced with a generative AI assistant for personalized farming advice.",
     tech: ["Python", "scikit-learn", "Generative AI", "Streamlit", "Pandas"],
-    link: "",
+    link: "https://github.com/sathvikmaahi/Crop-recommendation-system-suing-machinelearning",
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=250&fit=crop"
   },
   {
     name: "Federated Threat Detection for Privacy-Preserving Cybersecurity",
     desc: "A distributed threat detection platform leveraging federated learning to identify cyber threats across multiple organizations while ensuring data privacy and compliance.",
     tech: ["Federated Learning", "PySyft", "PyTorch", "Cybersecurity", "Docker"],
-    link: "",
+    link: "https://github.com/sathvikmaahi/Distributed-Threat-Detection-Ensuring-Privacy-in-Cyber-Security-Using-Federated-Learning",
     image: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=400&h=250&fit=crop"
   },
   {
     name: "Smart Waste Classification with Deep Learning",
     desc: "A deep learning solution for automated garbage classification, enabling efficient recycling and waste management through real-time image recognition.",
     tech: ["TensorFlow", "Keras", "OpenCV", "Python", "CNN"],
-    link: "",
+    link: "https://github.com/sathvikmaahi/GARBAGE-CLASSIFICATION-USING-DEEP-LEARNING",
     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?w=400&h=250&fit=crop"
   },
   {
     name: "Flight Fare & Delay Prediction Platform",
     desc: "A machine learning platform that predicts flight fares and delays using historical and real-time data, empowering travelers and airlines with actionable insights.",
     tech: ["scikit-learn", "Pandas", "Flask", "ML Ops", "AWS"],
-    link: "",
+    link: "https://github.com/sathvikmaahi/FLIGHT-PREDICTION-USING-ML",
     image: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=400&h=250&fit=crop"
   },
   {
@@ -156,7 +145,7 @@ const projects = [
   {
     name: "Product Recommendation System",
     desc: "End-to-end ML pipeline for personalized recommendations, boosting marketing ROI by 15% and improving user engagement.",
-    tech: ["Python", "BigQuery", "Airbyte", "Scikit-learn"],
+    tech: ["Python", "BigQuery", "Airbyte", "Scikit-learn", "Cutomer Segmentation"],
     link: "",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop"
   },
