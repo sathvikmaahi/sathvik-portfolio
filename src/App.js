@@ -167,14 +167,14 @@ const projects = [
     name: "Lung Disease/COVID Detection",
     desc: "Deep learning model for X-ray image-based disease detection with 92% accuracy (published research work).",
     tech: ["TensorFlow", "Python", "OpenCV", "CNN"],
-    link: "",
+    link: "https://github.com/sathvikmaahi/LUNG-DISEASE-AND-COVID-DETECTION-USING-CHESTX-RAY-IMAGES-BY-DEEP-LEARNING",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop"
   },
   {
     name: "Drug Classification Using Machine Learning",
     desc: "A machine learning solution for classifying drugs based on chemical properties and clinical data, supporting pharmaceutical research and personalized medicine initiatives.",
     tech: ["Python", "scikit-learn", "Pandas", "Data Visualization", "Jupyter"],
-    link: "",
+    link: "https://github.com/sathvikmaahi/DRUG-CLASSIFICATION-USING-MACHINE-LEARNING",
     image: "https://images.unsplash.com/photo-1588776814546-ec7e93716c6a?w=400&h=250&fit=crop"
   }
 ];
