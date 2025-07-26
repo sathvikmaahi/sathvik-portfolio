@@ -6,7 +6,7 @@ const RESUME_URL = "/resume.pdf";
 
 const experiences = [
   {
-    role: "Machine Learning Engineer",
+    role: "AIML Engineer",
     company: "Vertx AI",
     period: "June 2025 – Present",
     location: "San Francisco, California",
