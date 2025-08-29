@@ -419,7 +419,7 @@ export default function App() {
             <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in-up">
               Sathvik Sanka
             </h1>
-            <h2 className="text-2xl md:text-3xl text-[#e3e6ed] mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>ML Software Engineer & Data Engineer</h2>
+            <h2 className="text-2xl md:text-3xl text-[#e3e6ed] mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>Machine Learning Engineer & Artificial Intelligence Specialist </h2>
             <p className="text-lg md:text-xl max-w-4xl mx-auto text-[#b0b3bb] mb-8 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               Results-driven engineer with 3+ years experience delivering AI and data solutions across e-commerce, healthcare, and consumer goods. 
               Expert in machine learning, cloud infrastructure, and production data pipelines that drive business impact.
