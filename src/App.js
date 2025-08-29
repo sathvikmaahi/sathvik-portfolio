@@ -97,10 +97,17 @@ const experiences = [
 
 const projects = [
   {
+    name: "Ovarian cancer detection",
+    desc: "A machine learning-based system for early detection and classification of ovarian cancer using medical imaging and clinical data. Implements advanced ML algorithms for improved diagnostic accuracy and patient outcomes.",
+    tech: ["Python", "Machine Learning", "Medical Imaging", "scikit-learn", "Data Analysis", "Healthcare AI"],
+    link: "https://github.com/sathvikmaahi/ovarian-cancer-information",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop"
+  },
+  {
     name: "AI powered universal data analyst",
     desc: "A full-stack AI-powered analytics platform that lets users upload any business data format and receive intelligent insights via natural language queries. Integrates multiple Hugging Face models (DialoGPT, RoBERTa) for automated text generation, sentiment analysis, and business intelligence recommendations.",
     tech: ["Python", "SQL", "Hugging Face Transformers", "PyTorch", "Natural Language Processing", "Sentiment Analysis"],
-    link: "https://github.com/sathvikmaahi/AI-powered-universal-data-analyst",
+    link: "https://github.com/sathvikmaahi/ai-powered-universal-data-analyst",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
     bullets: [
       "Developed a full-stack AI-powered business analytics platform using Python, Streamlit, and Hugging Face models, enabling users to upload any business data format and receive intelligent insights through natural language queries.",
