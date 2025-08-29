@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaRobot, FaUser, FaPaperPlane, FaTimes, FaComments } from 'react-icons/fa';
+import { FaRobot, FaPaperPlane, FaTimes, FaComments } from 'react-icons/fa';
 
 const AIPortfolioAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -122,8 +122,6 @@ const AIPortfolioAssistant = () => {
           return `Sathvik's key skills include: Machine Learning, Data Engineering, Cloud Services (AWS/Azure/GCP), Programming (Python/R/SQL), AI/ML Tools (PyTorch/TensorFlow), and Web Technologies. Which area would you like to know more about?`;
         
         case 'who':
-        case 'what':
-        case 'how':
           return `I'm an AI assistant for Sathvik Sanka, a Machine Learning Engineer & AI Specialist. I can tell you about his projects, skills, experience, education, or anything else about his portfolio. What would you like to know?`;
         
         case 'hey':
