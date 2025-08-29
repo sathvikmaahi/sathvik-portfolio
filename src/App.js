@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaArrowUp, FaExternalLinkAlt, FaStar, FaCode, FaDatabase, FaCloud, FaChartLine } from "react-icons/fa";
 import ContactForm from "./components/ContactForm";
+import AIPortfolioAssistant from "./components/AIPortfolioAssistant";
 
 const RESUME_URL = "/resume.pdf";
 
@@ -657,6 +658,9 @@ export default function App() {
           <FaArrowUp size={20} />
         </button>
       )}
+
+      {/* AI Portfolio Assistant */}
+      <AIPortfolioAssistant />
     </div>
   );
 }
