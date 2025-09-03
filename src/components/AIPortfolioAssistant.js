@@ -58,6 +58,11 @@ const AIPortfolioAssistant = () => {
         location: "Cincinnati, Ohio",
         achievements: ["Designed personalized product recommendation system (12% CTR increase)", "Developed forecasting models reducing sales forecast error by 10%", "Automated marketing KPIs via BigQuery dashboards (7% revenue uplift)"]
       }
+    },
+    research: {
+      "Embedded Machine Learning": "Exploring the intersection of machine learning and embedded systems to create intelligent, low-power devices that can perform complex AI tasks at the edge. Focus areas include model optimization for resource-constrained environments, real-time inference, and edge computing architectures.",
+      "ML in Electronics & Communication": "Investigating how machine learning can revolutionize electronic systems and communication networks. This includes signal processing, wireless communication optimization, and intelligent electronic device design using AI-driven approaches.",
+      "AI in Legal Systems": "Researching how artificial intelligence can transform legal processes, from document analysis and case prediction to automated legal research and compliance monitoring. Exploring the ethical implications and practical applications of AI in the legal domain."
     }
   };
 
@@ -156,7 +161,23 @@ const AIPortfolioAssistant = () => {
         case 'help':
         case 'what':
         case 'how':
-          return `I'm here to help! 🚀 You can ask me about Sathvik's projects, skills, experience, education, or contact info. Try single words like "python", "ml", "projects", "github", or ask full questions. What would you like to know?`;
+          return `I'm here to help! 🚀 You can ask me about Sathvik's projects, skills, experience, education, research interests, or contact info. Try single words like "python", "ml", "projects", "research", "github", or ask full questions. What would you like to know?`;
+        
+        case 'research':
+        case 'interests':
+          return `Sathvik has three main research interests: 1) Embedded Machine Learning - creating intelligent, low-power devices for edge AI, 2) ML in Electronics & Communication - revolutionizing electronic systems with AI, and 3) AI in Legal Systems - transforming legal processes with artificial intelligence. Which area interests you most?`;
+        
+        case 'embedded':
+        case 'edge':
+          return `Embedded Machine Learning is one of Sathvik's key research areas! He's exploring how to create intelligent, low-power devices that can perform complex AI tasks at the edge. This includes model optimization, real-time inference, and edge computing architectures.`;
+        
+        case 'electronics':
+        case 'communication':
+          return `ML in Electronics & Communication is a fascinating research area! Sathvik investigates how machine learning can revolutionize electronic systems and communication networks, including signal processing, wireless optimization, and intelligent device design.`;
+        
+        case 'legal':
+        case 'law':
+          return `AI in Legal Systems is an emerging research field! Sathvik researches how artificial intelligence can transform legal processes, from document analysis and case prediction to automated legal research and compliance monitoring.`;
         
         default:
           // Check if the word matches any project names
@@ -178,6 +199,15 @@ const AIPortfolioAssistant = () => {
             return portfolioKnowledge.skills[skillMatch];
           }
           
+          // Check if the word matches any research areas
+          const researchMatch = Object.keys(portfolioKnowledge.research).find(research => 
+            research.toLowerCase().includes(singleWord) || singleWord.includes(research.toLowerCase().split(' ')[0])
+          );
+          
+          if (researchMatch) {
+            return portfolioKnowledge.research[researchMatch];
+          }
+          
           // Check if the word matches any company names
           const companyMatch = Object.keys(portfolioKnowledge.experience).find(company => 
             company.toLowerCase().includes(singleWord) || singleWord.includes(company.toLowerCase().split(' ')[0])
@@ -188,7 +218,7 @@ const AIPortfolioAssistant = () => {
             return `At ${companyMatch}, Sathvik worked as ${exp.role} from ${exp.period} in ${exp.location}. ${exp.focus}`;
           }
           
-          return `I'm not sure about "${singleWord}". Try asking about Sathvik's projects, skills, experience, education, or contact information. You can also ask about specific technologies like Python, ML, AI, cloud, or healthcare!`;
+          return `I'm not sure about "${singleWord}". Try asking about Sathvik's projects, skills, experience, education, research interests, or contact information. You can also ask about specific technologies like Python, ML, AI, cloud, or healthcare!`;
       }
     }
     

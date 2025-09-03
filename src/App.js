@@ -253,6 +253,51 @@ const contactLinks = [
   { icon: <FaGithub size={20} />, url: "https://github.com/sathvikmaahi", label: "GitHub" }
 ];
 
+const researchInterests = [
+  {
+    title: "Embedded Machine Learning",
+    description: "Exploring the intersection of machine learning and embedded systems to create intelligent, low-power devices that can perform complex AI tasks at the edge. Focus areas include model optimization for resource-constrained environments, real-time inference, and edge computing architectures.",
+    keyAreas: [
+      "Edge AI and IoT Integration",
+      "Model Compression & Quantization", 
+      "Real-time Inference Optimization",
+      "Hardware-Accelerated ML",
+      "Embedded Neural Networks",
+      "Low-Power AI Systems"
+    ],
+    icon: "🔬",
+    color: "from-blue-500 to-cyan-500"
+  },
+  {
+    title: "Machine Learning in Electronics & Communication",
+    description: "Investigating how machine learning can revolutionize electronic systems and communication networks. This includes signal processing, wireless communication optimization, and intelligent electronic device design using AI-driven approaches.",
+    keyAreas: [
+      "AI-Enhanced Signal Processing",
+      "Wireless Communication Optimization",
+      "Smart Antenna Systems",
+      "ML-based Circuit Design",
+      "Intelligent Network Management",
+      "Cognitive Radio Systems"
+    ],
+    icon: "📡",
+    color: "from-purple-500 to-pink-500"
+  },
+  {
+    title: "AI Applications in Legal Systems",
+    description: "Researching how artificial intelligence can transform legal processes, from document analysis and case prediction to automated legal research and compliance monitoring. Exploring the ethical implications and practical applications of AI in the legal domain.",
+    keyAreas: [
+      "Legal Document Analysis",
+      "Case Outcome Prediction",
+      "Automated Legal Research",
+      "Contract Analysis & Review",
+      "Compliance Monitoring",
+      "Legal AI Ethics & Bias"
+    ],
+    icon: "⚖️",
+    color: "from-green-500 to-emerald-500"
+  }
+];
+
 const stats = [
   { number: "3+", label: "Years Experience" },
   { number: "15+", label: "Projects Completed" },
@@ -328,6 +373,7 @@ export default function App() {
   const experienceRef = useRef(null);
   const projectsRef = useRef(null);
   const skillsRef = useRef(null);
+  const researchRef = useRef(null);
   const contactRef = useRef(null);
 
   // Smooth scroll handler
@@ -338,6 +384,7 @@ export default function App() {
       experience: experienceRef,
       projects: projectsRef,
       skills: skillsRef,
+      research: researchRef,
       contact: contactRef,
     };
     sectionRefs[section]?.current?.scrollIntoView({ behavior: 'smooth' });
@@ -352,6 +399,7 @@ export default function App() {
         { id: 'experience', ref: experienceRef },
         { id: 'projects', ref: projectsRef },
         { id: 'skills', ref: skillsRef },
+        { id: 'research', ref: researchRef },
         { id: 'contact', ref: contactRef },
       ];
       const scrollPos = window.scrollY + 120; // offset for nav height
@@ -390,6 +438,7 @@ export default function App() {
                 { id: 'experience', label: 'Experience' },
                 { id: 'projects', label: 'Projects' },
                 { id: 'skills', label: 'Skills' },
+                { id: 'research', label: 'Research' },
                 { id: 'contact', label: 'Contact' },
               ].map((nav) => (
                 <button
@@ -564,6 +613,59 @@ export default function App() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Research Interests Section */}
+      <section id="research" ref={researchRef} className="py-16 px-4 bg-[#23272f]/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold text-[#e3e6ed] mb-4">Research Interests</h3>
+            <p className="text-lg text-[#b0b3bb] max-w-3xl mx-auto">
+              Exploring cutting-edge applications of AI and machine learning across diverse domains, 
+              from embedded systems to legal technology, pushing the boundaries of what's possible with intelligent systems.
+            </p>
+          </div>
+          <div className="grid gap-8 lg:grid-cols-1">
+            {researchInterests.map((research, idx) => (
+              <div key={idx} className="bg-[#23272f]/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+                <div className="p-8">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0">
+                      <div className={`w-16 h-16 bg-gradient-to-r ${research.color} rounded-2xl flex items-center justify-center text-3xl shadow-lg`}>
+                        {research.icon}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-2xl font-bold text-[#e3e6ed] mb-4">{research.title}</h4>
+                      <p className="text-[#b0b3bb] mb-6 leading-relaxed text-lg">{research.description}</p>
+                      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                        {research.keyAreas.map((area, i) => (
+                          <div key={i} className="flex items-center gap-2">
+                            <div className={`w-2 h-2 bg-gradient-to-r ${research.color} rounded-full`}></div>
+                            <span className="text-[#b0b3bb] text-sm font-medium">{area}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Research Impact Statement */}
+          <div className="mt-12 text-center">
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm rounded-3xl p-8 border border-primary/20">
+              <h4 className="text-2xl font-bold text-[#e3e6ed] mb-4">Research Vision</h4>
+              <p className="text-lg text-[#b0b3bb] max-w-4xl mx-auto leading-relaxed">
+                My research focuses on bridging the gap between theoretical AI advancements and practical, 
+                real-world applications. By exploring these interdisciplinary areas, I aim to contribute to 
+                the development of more efficient, ethical, and accessible AI systems that can solve complex 
+                problems across various industries and domains.
+              </p>
+            </div>
           </div>
         </div>
       </section>
