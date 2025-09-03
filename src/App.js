@@ -11,6 +11,7 @@ const experiences = [
     company: "Vertx AI",
     period: "June 2025 – Present",
     location: "San Francisco, California",
+    website: "https://vertx.framer.ai/",
     bullets: [
       "Developing and deploying machine learning models for AI-powered applications.",
       "Collaborating with cross-functional teams to implement scalable ML solutions.",
@@ -342,7 +343,20 @@ function TimelineItem({ exp, idx }) {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
             <div>
               <h4 className="text-2xl font-bold text-[#e3e6ed] mb-2">{exp.role}</h4>
-              <p className="text-xl text-primary font-semibold">{exp.company}</p>
+              <div className="flex items-center gap-2">
+                <p className="text-xl text-primary font-semibold">{exp.company}</p>
+                {exp.website && (
+                  <a 
+                    href={exp.website} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 transition-colors duration-200"
+                    title={`Visit ${exp.company} website`}
+                  >
+                    <FaExternalLinkAlt size={16} />
+                  </a>
+                )}
+              </div>
             </div>
             <div className="text-right mt-4 lg:mt-0">
               <p className="text-[#b0b3bb] font-medium">{exp.period}</p>

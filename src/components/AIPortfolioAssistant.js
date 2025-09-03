@@ -50,7 +50,8 @@ const AIPortfolioAssistant = () => {
         role: "Machine Learning Engineer",
         period: "June 2025 – Present",
         location: "San Francisco, California",
-        focus: "Developing and deploying machine learning models for AI-powered applications, collaborating with cross-functional teams, and optimizing model performance for production readiness."
+        website: "https://vertx.framer.ai/",
+        focus: "Developing and deploying machine learning models for AI-powered applications, collaborating with cross-functional teams, and optimizing model performance for production readiness. Vertx AI is an AI Copilot for fundraising that helps founders raise funds 10x smarter using AI."
       },
       "Gear Supply": {
         role: "Data Engineer (Data Science)",
@@ -179,6 +180,9 @@ const AIPortfolioAssistant = () => {
         case 'law':
           return `AI in Legal Systems is an emerging research field! Sathvik researches how artificial intelligence can transform legal processes, from document analysis and case prediction to automated legal research and compliance monitoring.`;
         
+        case 'vertx':
+          return `Vertx AI is Sathvik's current company! It's an AI Copilot for fundraising that helps founders raise funds 10x smarter using AI. The platform includes investor matching, pitch deck generation, and automated outreach. Check it out at vertx.framer.ai!`;
+        
         default:
           // Check if the word matches any project names
           const projectMatch = Object.keys(portfolioKnowledge.projects).find(project => 
@@ -215,7 +219,8 @@ const AIPortfolioAssistant = () => {
           
           if (companyMatch) {
             const exp = portfolioKnowledge.experience[companyMatch];
-            return `At ${companyMatch}, Sathvik worked as ${exp.role} from ${exp.period} in ${exp.location}. ${exp.focus}`;
+            const websiteInfo = exp.website ? ` Visit their website: ${exp.website}` : '';
+            return `At ${companyMatch}, Sathvik worked as ${exp.role} from ${exp.period} in ${exp.location}. ${exp.focus}${websiteInfo}`;
           }
           
           return `I'm not sure about "${singleWord}". Try asking about Sathvik's projects, skills, experience, education, research interests, or contact information. You can also ask about specific technologies like Python, ML, AI, cloud, or healthcare!`;
