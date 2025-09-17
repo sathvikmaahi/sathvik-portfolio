@@ -9,7 +9,7 @@ const experiences = [
   {
     role: "Associate Data Scientist",
     company: "Coforge",
-    period: "Feb 2025 – Present",
+    period: "June 2025 – Present",
     location: "USA",
     bullets: [
       "Designed and implemented scalable machine learning feature stores, enabling reusable feature sharing across teams and significantly accelerating the model development lifecycle.",
