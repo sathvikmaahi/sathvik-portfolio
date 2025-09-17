@@ -7,6 +7,20 @@ const RESUME_URL = "https://drive.google.com/file/d/1WLKkhI1LRaBuBioUwuZF7ojEJxJ
 
 const experiences = [
   {
+    role: "Associate Data Scientist",
+    company: "Coforge",
+    period: "Feb 2025 – Present",
+    location: "USA",
+    bullets: [
+      "Designed and implemented scalable machine learning feature stores, enabling reusable feature sharing across teams and significantly accelerating the model development lifecycle.",
+      "Created a hybrid recommendation engine that combined collaborative filtering and content-based approaches on large-scale interaction data, contributing to a 12% increase in CTR and improved marketing performance.",
+      "Deployed a personalized product recommendation engine by integrating behavioral data from HubSpot and product catalogs from MongoDB using Airbyte pipelines, resulting in improved targeting and increased click-through rates.",
+      "Developed a Python automation script to dynamically identify and fetch the latest folders from Google Cloud Storage (GCS), improving data retrieval speed and increasing operational efficiency.",
+      "Applied statistical modeling techniques like ANOVA and developed complex SQL queries to evaluate AI-driven decision outcomes, enhancing research quality and increasing analytical precision.",
+      "Migrated and transformed large operational datasets from PostgreSQL to Google BigQuery, supporting sales performance analytics and enabling more accurate forecasting models."
+    ]
+  },
+  {
     role: "AIML Engineer",
     company: "Vertx AI",
     period: "June 2025 – Present",
@@ -19,7 +33,7 @@ const experiences = [
       "Contributing to the advancement of AI technologies in a fast-paced startup environment."
     ]
   },
-  {
+  /*{
     role: "Data Engineer (Data Science)",
     company: "Gear Supply",
     period: "Jan 2025 – Apr 2025",
@@ -30,7 +44,7 @@ const experiences = [
       "Automated & visualized marketing KPIs via BigQuery dashboards, resulting in a 7% revenue uplift.",
       "Engineered scalable data pipelines (Python, Airbyte, BigQuery), boosting throughput by 40%."
     ]
-  },
+  },*/
   {
     role: "Deep Learning Engineer & Research Assistant",
     company: "Procter & Gamble Digital Accelerator / University of Cincinnati",
@@ -56,7 +70,7 @@ const experiences = [
   {
     role: "Software Engineer (Ml & Data Engineering)",
     company: "Iresh Technologies",
-    period: "Nov 2021 – Dec 2023",
+    period: "Nov 2022 – Dec 2023",
     location: "Hyderabad, India",
     bullets: [
       "Built NLP chatbot (90%+ accuracy), Power BI dashboards, and Azure-based ETL workflows.",
@@ -65,9 +79,9 @@ const experiences = [
     ]
   },
   {
-    role: "Machine Learning Engineer",
-    company: "The SmartBridge",
-    period: "Mar 2022 – Nov 2022",
+    role: "Data Science Analyst",
+    company: "Lumen Technologies",
+    period: "Aug 2020 – Oct 2022",
     location: "Hyderabad, India",
     bullets: [
       "Guided multiple colleges across different states in India like Tamil Nadu, Kerala, Andhra Pradesh, and Telangana on IBM services, including Watson Studio, Python, and cutting-edge technologies such as Machine Learning, deep learning, HTML, CSS, and Flask, enabling them to implement data-driven projects and achieve significant technological advancements.",
@@ -80,7 +94,7 @@ const experiences = [
       
     ]
   },
-  {
+  /*{
     role: "Data Scientist",
     company: "The SmartBridge",
     period: "Nov 2021 – Feb 2022",
@@ -93,7 +107,7 @@ const experiences = [
       "Built and maintained data pipelines and performed data analysis for actionable insights.",
       "Collaborated with cross-functional teams to deliver end-to-end analytics solutions."
     ]
-  },
+  },*/
 
 ];
 

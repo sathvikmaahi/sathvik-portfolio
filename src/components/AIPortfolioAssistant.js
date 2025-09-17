@@ -166,10 +166,13 @@ const AIPortfolioAssistant = () => {
         
         case 'research':
         case 'interests':
+        case 'research interests':
+        case 'research interest':
           return `Sathvik has three main research interests: 1) Embedded Machine Learning - creating intelligent, low-power devices for edge AI, 2) ML in Electronics & Communication - revolutionizing electronic systems with AI, and 3) AI in Legal Systems - transforming legal processes with artificial intelligence. Which area interests you most?`;
         
         case 'embedded':
         case 'edge':
+        case 'edge ai':
           return `Embedded Machine Learning is one of Sathvik's key research areas! He's exploring how to create intelligent, low-power devices that can perform complex AI tasks at the edge. This includes model optimization, real-time inference, and edge computing architectures.`;
         
         case 'electronics':
