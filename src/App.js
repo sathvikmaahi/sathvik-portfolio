@@ -113,6 +113,19 @@ const experiences = [
 
 const projects = [
   {
+    name: "Multi-Agent Healthcare Chatbot with AutoGen",
+    desc: "A revolutionary multi-agent AI system using Microsoft AutoGen that simulates medical team consultations. Features 4 specialized AI agents (Patient, Diagnosis, Pharmacy, Consultation) that collaborate in real-time to provide comprehensive medical guidance, demonstrating the power of conversational AI in healthcare.",
+    tech: ["AutoGen", "GPT-4o", "Multi-Agent Systems", "Python", "Streamlit", "Healthcare AI", "Conversational AI"],
+    link: "https://github.com/sathvikmaahi/multi-agent-healthcare-chatbot",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop",
+    bullets: [
+      "Developed a multi-agent AI system using Microsoft AutoGen framework, featuring 4 specialized agents that collaborate like a medical team to provide comprehensive healthcare consultation.",
+      "Implemented real-time agent-to-agent communication with GroupChat management, enabling structured conversations and cross-validation of medical recommendations.",
+      "Built both command-line and Streamlit web interfaces, making the system accessible for demonstrations and educational purposes.",
+      "Demonstrated advanced conversational AI capabilities in healthcare, showcasing how multiple AI agents can work together to improve diagnostic accuracy and patient outcomes."
+    ]
+  },
+  {
     name: "Ovarian cancer detection",
     desc: "A machine learning-based system for early detection and classification of ovarian cancer using medical imaging and clinical data. Implements advanced ML algorithms for improved diagnostic accuracy and patient outcomes.",
     tech: ["Python", "Machine Learning", "Medical Imaging", "scikit-learn", "Data Analysis", "Healthcare AI"],
@@ -220,10 +233,12 @@ const skills = {
     "Natural Language Processing (Semantic Analysis, Text Segmentation)",
     "ML Ops (ML Flow)",
     "LLMs (GPT-3,4, Time Series Analysis)",
-    "Generative AI"
+    "Generative AI",
+    "Multi-Agent Systems (AutoGen)",
+    "Conversational AI"
   ],
   "Framework & Libraries": [
-    "PyTorch", "Keras", "Scikit-Learn", "Pandas", "NumPy", "Seaborn", "Matplotlib", "Hugging Face", "LangChain", "OpenAI", "NLTK", "Spacy", "FastAPI"
+    "PyTorch", "Keras", "Scikit-Learn", "Pandas", "NumPy", "Seaborn", "Matplotlib", "Hugging Face", "LangChain", "OpenAI", "AutoGen", "NLTK", "Spacy", "FastAPI"
   ],
   "Data Engineering": [
     "PySpark", "Apache Airflow", "Databricks", "ETL/ELT Pipelines", "Data Modeling", "Snowflake"
