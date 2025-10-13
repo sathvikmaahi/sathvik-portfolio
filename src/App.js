@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaArrowUp, FaExternalLink
 import ContactForm from "./components/ContactForm";
 import AIPortfolioAssistant from "./components/AIPortfolioAssistant";
 
-const RESUME_URL = " ";
+const RESUME_URL = "";
 
 const experiences = [
   {
