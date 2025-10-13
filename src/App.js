@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaArrowUp, FaExternalLink
 import ContactForm from "./components/ContactForm";
 import AIPortfolioAssistant from "./components/AIPortfolioAssistant";
 
-const RESUME_URL = "https://drive.google.com/file/d/1WLKkhI1LRaBuBioUwuZF7ojEJxJOVlbf/view?usp=sharing";
+const RESUME_URL = " ";
 
 const experiences = [
   {
@@ -237,6 +237,7 @@ const skills = {
 };
 
 const certifications = [
+  { name: "Oracle Cloud Infrastructure 2025 Generative AI Professional", issuer: "Oracle", year: "2025" },
   { name: "AWS Certified Data Engineer (Associate)", issuer: "Amazon Web Services", year: "2024" },
   { name: "IBM Machine Learning Specialist (Associate)", issuer: "IBM", year: "2023" },
   { name: "Generative AI & Prompt Engineering", issuer: "Google Cloud", year: "2024" },
