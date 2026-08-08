@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaUser, FaPhone, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaEnvelope, FaUser, FaPhone, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaMapMarkerAlt } from 'react-icons/fa';
+
+const API_BASE = process.env.REACT_APP_API_URL || '';
+const CONTACT_EMAIL = 'veerabadhrasathvik@gmail.com';
+const CONTACT_PHONE = '+1 (513) 919-0874';
+const CONTACT_LOCATION = 'Novi, Michigan';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +16,7 @@ const ContactForm = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,8 +32,7 @@ const ContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      // Send form data to backend
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch(`${API_BASE}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +67,6 @@ const ContactForm = () => {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -96,7 +99,6 @@ const ContactForm = () => {
           </div>
         </div>
 
-        {/* Phone and Subject Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -127,7 +129,6 @@ const ContactForm = () => {
           </div>
         </div>
 
-        {/* Message */}
         <div className="relative">
           <textarea
             name="message"
@@ -140,8 +141,7 @@ const ContactForm = () => {
           />
         </div>
 
-        {/* Submit Button */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <button
             type="submit"
             disabled={!isFormValid || isSubmitting}
@@ -164,7 +164,6 @@ const ContactForm = () => {
             )}
           </button>
 
-          {/* Status Message */}
           {submitStatus && (
             <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
               submitStatus === 'success' 
@@ -187,28 +186,27 @@ const ContactForm = () => {
         </div>
       </form>
 
-      {/* Alternative Contact Methods */}
       <div className="mt-12 pt-8 border-t border-white/20">
         <h4 className="text-xl font-semibold text-white mb-4 text-center">Or reach out directly</h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
           <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
             <FaEnvelope className="h-6 w-6 text-indigo-300 mx-auto mb-2" />
             <p className="text-white font-medium">Email</p>
-            <a href="mailto:sathviksanka1@gmail.com" className="text-indigo-200 hover:text-white transition-colors">
-              sathviksanka1@gmail.com
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-indigo-200 hover:text-white transition-colors text-sm break-all">
+              {CONTACT_EMAIL}
             </a>
           </div>
           <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
             <FaPhone className="h-6 w-6 text-indigo-300 mx-auto mb-2" />
             <p className="text-white font-medium">Phone</p>
-            <a href="tel:+1234567890" className="text-indigo-200 hover:text-white transition-colors">
-              +1 (513)-919-0874
+            <a href="tel:+15139190874" className="text-indigo-200 hover:text-white transition-colors">
+              {CONTACT_PHONE}
             </a>
           </div>
           <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
-            <FaEnvelope className="h-6 w-6 text-indigo-300 mx-auto mb-2" />
+            <FaMapMarkerAlt className="h-6 w-6 text-indigo-300 mx-auto mb-2" />
             <p className="text-white font-medium">Location</p>
-            <p className="text-indigo-200">Cincinnati, Ohio</p>
+            <p className="text-indigo-200">{CONTACT_LOCATION}</p>
           </div>
         </div>
       </div>
@@ -216,4 +214,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm; 
+export default ContactForm;

@@ -1,16 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.SERVER_PORT || process.env.PORT || 5000;
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'veerabadhrasathvik@gmail.com';
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Email transporter configuration
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -19,12 +19,10 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Contact form endpoint
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, phone, subject, message } = req.body;
 
-    // Validate required fields
     if (!name || !email || !message) {
       return res.status(400).json({ 
         success: false, 
@@ -32,10 +30,9 @@ app.post('/api/contact', async (req, res) => {
       });
     }
 
-    // Email content
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'sathviksanka1@gmail.com', // Your email address
+      to: CONTACT_EMAIL,
       subject: `Portfolio Contact: ${subject || 'New Message'}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -50,7 +47,6 @@ app.post('/api/contact', async (req, res) => {
       `
     };
 
-    // Send email
     await transporter.sendMail(mailOptions);
 
     res.json({ 
@@ -67,11 +63,17 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'build')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+}
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-}); 
+});

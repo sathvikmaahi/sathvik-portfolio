@@ -1,3 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: #06060b;
+  }
+}
+
+@layer components {
+  .ai-glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10;
+    box-shadow:
+      0 0 0 1px rgba(99, 102, 241, 0.08),
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .ai-glass:hover {
+    @apply border-ai-cyan/30;
+    box-shadow:
+      0 0 0 1px rgba(0, 212, 255, 0.15),
+      0 0 30px rgba(99, 102, 241, 0.12),
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .ai-section-title {
+    @apply text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-ai-cyan to-ai-purple bg-clip-text text-transparent;
+  }
+
+  .ai-chip {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider
+      bg-ai-cyan/10 text-ai-cyan border border-ai-cyan/30;
+  }
+
+  .ai-gradient-text {
+    @apply bg-gradient-to-r from-ai-cyan via-ai-indigo to-ai-purple bg-clip-text text-transparent;
+  }
+
+  .ai-btn-primary {
+    @apply relative overflow-hidden px-8 py-3 rounded-full font-semibold text-white
+      bg-gradient-to-r from-ai-indigo via-ai-purple to-ai-cyan
+      shadow-glow hover:shadow-glow-lg transform hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .ai-btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-ai-cyan to-ai-purple opacity-0 transition-opacity duration-300;
+  }
+
+  .ai-btn-primary:hover::before {
+    opacity: 0.3;
+  }
+
+  .ai-grid-overlay {
+    background-image:
+      linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes neural-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(168, 85, 247, 0.3);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-neural-pulse {
+  animation: neural-pulse 3s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}

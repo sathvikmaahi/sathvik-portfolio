@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaRobot, FaPaperPlane, FaTimes, FaComments } from 'react-icons/fa';
+import { FaRobot, FaPaperPlane, FaTimes, FaBolt } from 'react-icons/fa';
 
 const AIPortfolioAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,127 +9,153 @@ const AIPortfolioAssistant = () => {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Portfolio knowledge base
   const portfolioKnowledge = {
     personal: {
       name: "Sathvik Sanka",
-      title: "Machine Learning Engineer & Artificial Intelligence Specialist",
-      experience: "3+ years",
-      location: "San Francisco, California",
-      education: "Master's in Information Technology from University of Cincinnati (4.0 GPA)",
-      background: "Results-driven engineer with expertise in AI, ML, and data engineering"
+      title: "AI/ML Engineer & MLOps Specialist",
+      experience: "5+ years",
+      location: "Novi, Michigan",
+      email: "veerabadhrasathvik@gmail.com",
+      education: "Master of Science in Information Technology from University of Cincinnati (4.0 GPA, May 2025)",
+      background: "AI/ML Engineer building production-grade agentic AI, RAG systems, and MLOps platforms across insurance, banking, and financial services on AWS, GCP, and Azure."
     },
     projects: {
-      "Ovarian cancer detection": {
-        description: "A machine learning-based system for early detection and classification of ovarian cancer using medical imaging and clinical data. Implements advanced ML algorithms for improved diagnostic accuracy and patient outcomes.",
-        technologies: ["Python", "Machine Learning", "Medical Imaging", "scikit-learn", "Data Analysis", "Healthcare AI"],
-        impact: "Improves early cancer detection and patient outcomes through AI-powered medical imaging analysis",
-        github: "https://github.com/sathvikmaahi/ovarian-cancer-information"
+      "MITRA AI": {
+        description: "Agentic MuleSoft integration analysis platform using Google ADK multi-agent architecture and production RAG with BM25, Azure OpenAI, and pgvector — reduced discovery from weeks to under 48 hours.",
+        technologies: ["Google ADK", "RAG", "pgvector", "LiteLLM", "Terraform", "AWS ECS"],
+        impact: "Automated IRD generation and complexity scoring across hundreds of integrations"
       },
-      "AI powered universal data analyst": {
-        description: "A full-stack AI-powered analytics platform that lets users upload any business data format and receive intelligent insights via natural language queries. Integrates multiple Hugging Face models for automated text generation, sentiment analysis, and business intelligence recommendations.",
-        technologies: ["Python", "SQL", "Hugging Face Transformers", "PyTorch", "Natural Language Processing", "Sentiment Analysis"],
-        impact: "Enables business users to get AI-powered insights from any data format through natural language",
-        github: "https://github.com/sathvikmaahi/ai-powered-universal-data-analyst"
+      "StatVisor": {
+        description: "Production multi-agent AI analytics platform using LangGraph, LangChain, and Azure OpenAI with FAISS hybrid RAG and Microsoft Copilot Studio integration.",
+        technologies: ["LangGraph", "LangChain", "Azure OpenAI", "FAISS", "Copilot Studio"],
+        impact: "Real-time data interpretation and low-code business-user access for R&D teams"
       },
-      "Intelligent Crop Recommendation": {
-        description: "A machine learning-powered system that recommends optimal crops based on soil, weather, and market data, enhanced with a generative AI assistant for personalized farming advice.",
-        technologies: ["Python", "scikit-learn", "Generative AI", "Streamlit", "Pandas"],
-        impact: "Helps farmers make data-driven decisions for optimal crop selection and yield"
+      "Hartford ML Platform": {
+        description: "Personal Lines Analytics ML platform processing 11M+ records per run with SageMaker, Airflow, Docker, DQM/MQM, and GCP Document AI for insurance filings.",
+        technologies: ["AWS SageMaker", "Airflow", "MLflow", "GCP Vertex AI", "CloudFormation"],
+        impact: "99.5% pipeline uptime with 35% batch inference improvement"
+      },
+      "Fiber Classification": {
+        description: "YOLOv11 computer vision pipeline with Medallion-structured OpenCV preprocessing, improving material analysis accuracy by 45%.",
+        technologies: ["YOLOv11", "OpenCV", "PyTorch", "Docker"],
+        impact: "Optimized P&G FemCare product development strategies"
+      },
+      "UBS Fraud Detection": {
+        description: "Credit risk and fraud detection platform using PyTorch, Spark MLlib, and GNN prototypes for organized fraud ring identification.",
+        technologies: ["PyTorch", "GNN", "Spark MLlib", "SHAP", "Tableau"],
+        impact: "Scalable fraud detection across large-scale banking transaction datasets"
       }
     },
     skills: {
-      "Machine Learning": "Expert in supervised and unsupervised learning, deep learning architectures, computer vision, and NLP. Experience with PyTorch, TensorFlow, scikit-learn, and Hugging Face models.",
-      "Data Engineering": "Proficient in building scalable data pipelines using Apache Airflow, PySpark, BigQuery, and ETL/ELT processes. Experience with data modeling and warehousing solutions.",
-      "Cloud Services": "Hands-on experience with AWS (SageMaker, Glue, Redshift), Microsoft Azure, GCP (BigQuery), and IBM Cloud Services including Watson Studio and Cognos Analytics.",
-      "Programming": "Strong proficiency in Python, R, SQL, and web technologies. Experience with Flask, Streamlit, and REST APIs.",
-      "AI/ML Tools": "Expert in PyTorch, Keras, scikit-learn, Pandas, NumPy, and specialized libraries for computer vision and NLP."
+      "Agentic AI": "Expert in Google ADK, LangGraph, multi-agent orchestration, MCP, dynamic skill loading, and human-in-the-loop workflows.",
+      "MLOps": "MLflow, Docker, Kubernetes, CI/CD (GitHub Actions, CodePipeline), DQM/MQM monitoring, champion-challenger workflows, Terraform, CloudFormation.",
+      "Generative AI": "RAG, Medallion architectures, fine-tuning (LoRA, QLoRA), LangChain, HuggingFace, vector search (Pinecone, FAISS, pgvector), RAGAS evaluation.",
+      "Machine Learning": "Supervised/unsupervised learning, XGBoost, deep learning, time-series (LSTM), computer vision (YOLOv11), GNN, SHAP explainability.",
+      "Cloud Services": "AWS (SageMaker, Bedrock, ECS, Lambda), GCP (Vertex AI, Document AI, BigQuery), Azure (AI Foundry, Copilot Studio, AI Search)."
     },
     experience: {
-      "Vertx AI": {
-        role: "Machine Learning Engineer",
-        period: "June 2025 – Present",
-        location: "San Francisco, California",
-        website: "https://vertx.framer.ai/",
-        focus: "Developing and deploying machine learning models for AI-powered applications, collaborating with cross-functional teams, and optimizing model performance for production readiness. Vertx AI is an AI Copilot for fundraising that helps founders raise funds 10x smarter using AI."
+      "Miracle Software Systems": {
+        role: "ML Engineer",
+        period: "May 2026 – Present",
+        location: "Novi, Michigan",
+        focus: "Building MITRA AI — agentic MuleSoft integration accelerator with Google ADK, production RAG, and Medallion data lakehouse pipelines."
       },
-      "Gear Supply": {
-        role: "Data Engineer (Data Science)",
-        period: "Jan 2025 – Apr 2025",
+      "Innovcentric / Hartford": {
+        role: "MLOps Engineer",
+        period: "June 2025 – April 2026",
+        location: "Cincinnati, OH",
+        focus: "Production ML pipelines for insurance underwriting processing 11M+ records, DQM/MQM monitoring, and GCP Document AI for filings."
+      },
+      "Innovcentric / P&G": {
+        role: "Machine Learning Engineer",
+        period: "August 2024 – May 2025",
         location: "Cincinnati, Ohio",
-        achievements: ["Designed personalized product recommendation system (12% CTR increase)", "Developed forecasting models reducing sales forecast error by 10%", "Automated marketing KPIs via BigQuery dashboards (7% revenue uplift)"]
+        achievements: ["YOLOv11 fiber classification (+45% accuracy)", "StatVisor multi-agent platform", "LSTM predictive maintenance with Kafka"]
+      },
+      "Symise / UBS": {
+        role: "ML Engineer",
+        period: "May 2022 – December 2023",
+        location: "Hyderabad, India",
+        achievements: ["Fraud detection with GNN prototypes", "Spark MLlib on distributed datasets", "Tableau fraud monitoring dashboards"]
+      },
+      "Symise / Smart Bridge": {
+        role: "Applied ML Engineer",
+        period: "January 2021 – May 2022",
+        location: "Hyderabad, India",
+        achievements: ["XGBoost churn prediction with SHAP", "Anomaly detection with Isolation Forests", "Snowflake/Airflow ML pipelines"]
       }
     },
+    publications: {
+      "Lung Disease COVID Detection": "Published in EIJTEM — deep learning for chest X-ray disease detection.",
+      "Pest Detection": "Published in IJSDIP — deep learning for agricultural pest detection."
+    },
     research: {
-      "Embedded Machine Learning": "Exploring the intersection of machine learning and embedded systems to create intelligent, low-power devices that can perform complex AI tasks at the edge. Focus areas include model optimization for resource-constrained environments, real-time inference, and edge computing architectures.",
-      "ML in Electronics & Communication": "Investigating how machine learning can revolutionize electronic systems and communication networks. This includes signal processing, wireless communication optimization, and intelligent electronic device design using AI-driven approaches.",
-      "AI in Legal Systems": "Researching how artificial intelligence can transform legal processes, from document analysis and case prediction to automated legal research and compliance monitoring. Exploring the ethical implications and practical applications of AI in the legal domain."
+      "Agentic AI": "Hierarchical multi-agent systems with Google ADK, scoped tool access, and enterprise orchestration.",
+      "RAG & Medallion": "Production RAG with 3-tier Medallion architectures and hybrid BM25 + dense retrieval.",
+      "Production MLOps": "End-to-end model lifecycle management with CI/CD, DQM/MQM, and cloud-native deployment."
     }
   };
 
-  // AI response generation
+  const SUGGESTED_PROMPTS = [
+    'Tell me about MITRA AI',
+    'What is your MLOps experience?',
+    'Agentic AI projects',
+    'Skills & certifications',
+  ];
+
   const generateAIResponse = (userMessage) => {
     const message = userMessage.toLowerCase().trim();
     const words = message.split(' ').filter(word => word.length > 0);
-    
-    // Handle single words and short queries
+
     if (words.length === 1) {
       const singleWord = words[0];
-      
-      // Single word responses
+
       switch (singleWord) {
         case 'python':
-          return `Python is one of Sathvik's core programming languages. He uses it extensively for machine learning, data analysis, web development, and AI applications. His projects include healthcare AI systems, business intelligence platforms, and agricultural AI solutions - all built with Python.`;
-        
+          return `Python is one of Sathvik's core languages. He uses it for MLOps pipelines, deep learning, data engineering, and GenAI applications across insurance, research, and analytics projects.`;
         case 'ml':
         case 'machine':
         case 'learning':
-          return `Machine Learning is Sathvik's primary expertise! He has 3+ years building ML systems including computer vision for medical imaging, NLP for business analytics, recommendation systems, and predictive models. He's proficient with PyTorch, TensorFlow, scikit-learn, and Hugging Face models.`;
-        
+          return `Machine Learning is a core strength! Sathvik builds production ML systems including computer vision (YOLOv11), NLP (BERT sentiment analysis), recommendation engines, and insurance pricing models with PyTorch, TensorFlow, and scikit-learn.`;
+        case 'mlops':
+          return `MLOps is a core specialty! Sathvik maintains 6+ production ML pipelines with 99.5% uptime, implements DQM/MQM monitoring, CI/CD with AWS CodePipeline and MLflow, and Infrastructure-as-Code with Terraform and CloudFormation.`;
+        case 'agentic':
+        case 'agents':
+          return `Sathvik builds production agentic AI systems including MITRA AI (Google ADK multi-agent MuleSoft analyzer) and StatVisor (LangGraph + Azure OpenAI with Copilot Studio integration).`;
+        case 'rag':
+          return `Sathvik engineers production RAG pipelines with hybrid BM25 + dense retrieval, Medallion architectures (Bronze/Silver/Gold), and vector databases (pgvector, FAISS, Pinecone).`;
         case 'ai':
         case 'artificial':
         case 'intelligence':
-        case 'artificial intelligence':
-          return `AI is Sathvik's passion! He specializes in machine learning, computer vision, natural language processing, and generative AI. His work includes healthcare AI (cancer detection), business AI (universal data analyst), and agricultural AI (crop recommendations).`;
-        
-        case 'data':
-          return `Data Engineering is a key strength! Sathvik builds scalable data pipelines using Apache Airflow, PySpark, BigQuery, and ETL/ELT processes. He's worked with recommendation systems, forecasting models, and real-time analytics dashboards.`;
-        
+          return `Sathvik is an AI/ML Engineer with 5+ years building agentic AI, RAG systems, computer vision (YOLOv11), fraud detection (GNN), and production MLOps across AWS, GCP, and Azure.`;
         case 'cloud':
-          return `Sathvik has extensive cloud experience with AWS (SageMaker, Glue, Redshift), Microsoft Azure, GCP (BigQuery), and IBM Cloud Services. He's deployed AI models, built data pipelines, and managed cloud infrastructure.`;
-        
-        case 'healthcare':
-          return `Healthcare AI is one of Sathvik's focus areas! He built an ovarian cancer detection system using machine learning and medical imaging. The project improves early cancer detection through AI-powered analysis of clinical data.`;
-        
+          return `Cloud expertise spans AWS (SageMaker, Bedrock, ECS, Lambda), GCP (Vertex AI, Document AI, BigQuery), and Azure (AI Foundry, Copilot Studio, AI Search).`;
         case 'projects':
         case 'work':
-          return `Sathvik has worked on several AI projects: 1) Ovarian Cancer Detection (healthcare AI), 2) Universal Data Analyst (business intelligence), 3) Intelligent Crop Recommendations (agricultural AI), 4) Product Recommendation System, and more! Which interests you?`;
-        
+          return `Key projects: MITRA AI (agentic MuleSoft), Hartford ML Platform (11M+ records), StatVisor (multi-agent analytics), Fiber Classification (YOLOv11), UBS Fraud Detection (GNN). Which interests you?`;
         case 'experience':
-          return `Sathvik has 3+ years of experience in AI and data engineering. Currently at Vertx AI as ML Engineer, previously at Gear Supply building recommendation systems and forecasting models. He's worked across healthcare, e-commerce, and consumer goods industries.`;
-        
+          return `Currently ML Engineer at Miracle Software Systems (May 2026–Present). Previously MLOps Engineer at Innovcentric/Hartford (2025–2026), ML Engineer at Innovcentric/P&G (2024–2025), and ML Engineer at Symise/UBS (2022–2023).`;
         case 'education':
-          return `Sathvik holds a Master's in Information Technology from University of Cincinnati with a perfect 4.0 GPA. His studies focused on cybersecurity, machine learning, data mining, and cloud platforms including Azure and GCP.`;
-        
+          return `MS in Information Technology from University of Cincinnati with a 4.0 GPA (May 2025) and BTech in Electronics & Communication Engineering from JB Institute (2023).`;
         case 'contact':
-          return `You can reach Sathvik through LinkedIn (linkedin.com/in/sathviksanka), GitHub (github.com/sathvikmaahi), or email at sathviksanka1@gmail.com. He's always interested in new opportunities!`;
-        
+          return `Reach Sathvik at veerabadhrasathvik@gmail.com, LinkedIn (linkedin.com/in/sathviksanka), or GitHub (github.com/sathvikmaahi). Based in Novi, Michigan.`;
         case 'github':
-          return `Sathvik's GitHub: github.com/sathvikmaahi. You'll find his projects including the ovarian cancer detection system, universal data analyst, and other AI/ML implementations. Feel free to explore his code!`;
-        
+          return `GitHub: github.com/sathvikmaahi — includes healthcare chatbot, lung disease detection, and other ML projects.`;
         case 'linkedin':
-          return `Sathvik's LinkedIn: linkedin.com/in/sathviksanka. Connect with him for professional opportunities, collaborations, or to discuss AI and machine learning projects!`;
-        
+          return `LinkedIn: linkedin.com/in/sathviksanka — connect for AI/ML engineering and MLOps opportunities.`;
+        case 'publications':
+        case 'papers':
+          return `Published: Lung Disease/COVID Detection (EIJTEM) and Pest Detection Using Deep Learning (IJSDIP).`;
+        case 'certifications':
+        case 'certs':
+          return `Certifications: Oracle Generative AI Professional, Oracle Vector Search Professional, AWS Data Engineer, IBM ML Specialist, Databricks GenAI Fundamentals, and more.`;
         case 'resume':
-          return `Sathvik's resume is available for download on his portfolio! It details his 3+ years of experience in machine learning, data engineering, and AI development across multiple industries.`;
-        
+          return `Sathvik's resume is available for download on his portfolio — covering 5+ years of AI/ML engineering, agentic systems, and MLOps.`;
         case 'skills':
         case 'skill':
-          return `Sathvik's key skills include: Machine Learning, Data Engineering, Cloud Services (AWS/Azure/GCP), Programming (Python/R/SQL), AI/ML Tools (PyTorch/TensorFlow), and Web Technologies. Which area would you like to know more about?`;
-        
+          return `Key skills: Agentic AI (Google ADK, LangGraph), MLOps, Generative AI/RAG, Machine Learning, and Cloud (AWS/GCP/Azure). Which area interests you?`;
         case 'who':
-          return `I'm an AI assistant for Sathvik Sanka, a Machine Learning Engineer & AI Specialist. I can tell you about his projects, skills, experience, education, or anything else about his portfolio. What would you like to know?`;
-        
+          return `I'm an AI assistant for Sathvik Sanka, an AI/ML Engineer & MLOps Specialist with 5+ years of experience. Ask about projects, agentic AI, experience, or publications!`;
         case 'hey':
         case 'hello':
         case 'hi':
@@ -139,164 +165,112 @@ const AIPortfolioAssistant = () => {
         case 'yo':
         case 'sup':
         case 'greetings':
-          return `Hey there! 👋 I'm Sathvik's AI Portfolio Assistant. I'm here to help you learn about his work, projects, and skills. What would you like to know about? You can ask me anything from "python" to "projects" to "experience" - or just say hi! 😊`;
-        
+          return `Hey there! 👋 I'm Sathvik's AI Portfolio Assistant. Ask about agentic AI, MLOps, projects, or experience!`;
         case 'thanks':
         case 'thank':
         case 'thx':
         case 'ty':
-          return `You're welcome! 😊 I'm here to help. Feel free to ask me anything else about Sathvik's portfolio - his projects, skills, experience, or just chat!`;
-        
+          return `You're welcome! 😊 Feel free to ask anything else about Sathvik's portfolio.`;
         case 'bye':
         case 'goodbye':
         case 'see':
         case 'later':
-          return `Goodbye! 👋 It was great chatting with you. Feel free to come back anytime to learn more about Sathvik's work. Have a wonderful day! ✨`;
-        
-        case 'cool':
-        case 'awesome':
-        case 'nice':
-        case 'great':
-          return `Thanks! 😄 I'm glad you think so. Sathvik has some really interesting projects and skills. Is there anything specific you'd like to know more about?`;
-        
+          return `Goodbye! 👋 Come back anytime to learn more about Sathvik's work.`;
         case 'help':
         case 'what':
         case 'how':
-          return `I'm here to help! 🚀 You can ask me about Sathvik's projects, skills, experience, education, research interests, or contact info. Try single words like "python", "ml", "projects", "research", "github", or ask full questions. What would you like to know?`;
-        
+          return `Ask about agentic AI, MLOps, projects, experience, publications, or certifications. Try "mitra", "mlops", "projects", or "skills".`;
         case 'research':
         case 'interests':
-        case 'research interests':
-        case 'research interest':
-          return `Sathvik has three main research interests: 1) Embedded Machine Learning - creating intelligent, low-power devices for edge AI, 2) ML in Electronics & Communication - revolutionizing electronic systems with AI, and 3) AI in Legal Systems - transforming legal processes with artificial intelligence. Which area interests you most?`;
-        
-        case 'embedded':
-        case 'edge':
-        case 'edge ai':
-          return `Embedded Machine Learning is one of Sathvik's key research areas! He's exploring how to create intelligent, low-power devices that can perform complex AI tasks at the edge. This includes model optimization, real-time inference, and edge computing architectures.`;
-        
-        case 'electronics':
-        case 'communication':
-          return `ML in Electronics & Communication is a fascinating research area! Sathvik investigates how machine learning can revolutionize electronic systems and communication networks, including signal processing, wireless optimization, and intelligent device design.`;
-        
-        case 'legal':
-        case 'law':
-          return `AI in Legal Systems is an emerging research field! Sathvik researches how artificial intelligence can transform legal processes, from document analysis and case prediction to automated legal research and compliance monitoring.`;
-        
-        case 'vertx':
-          return `Vertx AI is Sathvik's current company! It's an AI Copilot for fundraising that helps founders raise funds 10x smarter using AI. The platform includes investor matching, pitch deck generation, and automated outreach. Check it out at vertx.framer.ai!`;
-        
-        default:
-          // Check if the word matches any project names
-          const projectMatch = Object.keys(portfolioKnowledge.projects).find(project => 
+          return `Focus areas: Agentic AI & Multi-Agent Systems, RAG & Medallion Architectures, and Production MLOps & Model Lifecycle.`;
+        case 'miracle':
+        case 'mitra':
+          return `At Miracle Software Systems, Sathvik builds MITRA AI — an agentic MuleSoft integration accelerator using Google ADK, production RAG with pgvector, and Medallion lakehouse pipelines.`;
+        case 'hartford':
+        case 'insurance':
+          return `At Innovcentric/The Hartford, Sathvik was MLOps Engineer building production ML pipelines processing 11M+ records with DQM/MQM monitoring and GCP Document AI.`;
+        case 'pg':
+        case 'procter':
+          return `At Innovcentric/P&G, Sathvik built YOLOv11 fiber classification (+45% accuracy), StatVisor multi-agent platform, and LSTM predictive maintenance with Kafka.`;
+        case 'ubs':
+        case 'fraud':
+          return `At Symise/UBS, Sathvik developed fraud detection models with PyTorch, GNN prototypes for fraud rings, and Spark MLlib on distributed banking datasets.`;
+        default: {
+          const projectMatch = Object.keys(portfolioKnowledge.projects).find(project =>
             project.toLowerCase().includes(singleWord) || singleWord.includes(project.toLowerCase().split(' ')[0])
           );
-          
           if (projectMatch) {
             const project = portfolioKnowledge.projects[projectMatch];
-            return `The ${projectMatch} project: ${project.description}. It uses ${project.technologies.join(', ')} and ${project.impact}. Would you like more details?`;
+            return `${projectMatch}: ${project.description} Technologies: ${project.technologies.join(', ')}.`;
           }
-          
-          // Check if the word matches any skill areas
-          const skillMatch = Object.keys(portfolioKnowledge.skills).find(skill => 
-            skill.toLowerCase().includes(singleWord) || singleWord.includes(skill.toLowerCase().split(' ')[0])
+          const skillMatch = Object.keys(portfolioKnowledge.skills).find(skill =>
+            skill.toLowerCase().includes(singleWord)
           );
-          
           if (skillMatch) {
             return portfolioKnowledge.skills[skillMatch];
           }
-          
-          // Check if the word matches any research areas
-          const researchMatch = Object.keys(portfolioKnowledge.research).find(research => 
-            research.toLowerCase().includes(singleWord) || singleWord.includes(research.toLowerCase().split(' ')[0])
+          const companyMatch = Object.keys(portfolioKnowledge.experience).find(company =>
+            company.toLowerCase().includes(singleWord)
           );
-          
-          if (researchMatch) {
-            return portfolioKnowledge.research[researchMatch];
-          }
-          
-          // Check if the word matches any company names
-          const companyMatch = Object.keys(portfolioKnowledge.experience).find(company => 
-            company.toLowerCase().includes(singleWord) || singleWord.includes(company.toLowerCase().split(' ')[0])
-          );
-          
           if (companyMatch) {
             const exp = portfolioKnowledge.experience[companyMatch];
-            const websiteInfo = exp.website ? ` Visit their website: ${exp.website}` : '';
-            return `At ${companyMatch}, Sathvik worked as ${exp.role} from ${exp.period} in ${exp.location}. ${exp.focus}${websiteInfo}`;
+            return `At ${companyMatch}, Sathvik worked as ${exp.role} (${exp.period}) in ${exp.location}. ${exp.focus || exp.achievements?.join('. ')}`;
           }
-          
-          return `I'm not sure about "${singleWord}". Try asking about Sathvik's projects, skills, experience, education, research interests, or contact information. You can also ask about specific technologies like Python, ML, AI, cloud, or healthcare!`;
+          return `Try asking about "mlops", "projects", "experience", "skills", or "contact".`;
+        }
       }
     }
-    
-    // Handle multi-word queries (existing logic)
+
     if (message.includes('who are you') || message.includes('tell me about yourself')) {
-      return `I'm an AI assistant for ${portfolioKnowledge.personal.name}, a ${portfolioKnowledge.personal.title} with ${portfolioKnowledge.personal.experience} of experience. I'm here to help you learn about Sathvik's projects, skills, and experience. What would you like to know?`;
+      return `I'm an AI assistant for ${portfolioKnowledge.personal.name}, a ${portfolioKnowledge.personal.title} with ${portfolioKnowledge.personal.experience} of experience based in ${portfolioKnowledge.personal.location}. What would you like to know?`;
     }
-    
+
     if (message.includes('experience') || message.includes('work history')) {
-      return `Sathvik has ${portfolioKnowledge.personal.experience} of experience in AI and data engineering. Currently working as ML Engineer at Vertx AI in San Francisco, previously at Gear Supply where he built recommendation systems and forecasting models. Would you like details about a specific role?`;
+      return `Sathvik is currently an ML Engineer at Miracle Software Systems (May 2026–Present). Previously MLOps Engineer at Innovcentric/Hartford (June 2025–April 2026), ML Engineer at Innovcentric/P&G (Aug 2024–May 2025), ML Engineer at Symise/UBS (May 2022–Dec 2023), and Applied ML Engineer at Symise/Smart Bridge (Jan 2021–May 2022).`;
     }
-    
-    // Projects
+
     if (message.includes('project') || message.includes('work')) {
-      if (message.includes('ovarian') || message.includes('cancer')) {
-        const project = portfolioKnowledge.projects["Ovarian cancer detection"];
-        return `The Ovarian Cancer Detection project is a healthcare AI system that uses machine learning to analyze medical imaging and clinical data for early cancer detection. It's built with ${project.technologies.join(', ')} and focuses on improving diagnostic accuracy. You can find it on GitHub: ${project.github}`;
-      }
-      if (message.includes('data analyst') || message.includes('universal')) {
-        const project = portfolioKnowledge.projects["AI powered universal data analyst"];
-        return `The AI Universal Data Analyst is a full-stack platform that lets users upload any business data and get AI-powered insights through natural language. It uses ${project.technologies.join(', ')} and integrates multiple Hugging Face models for automated analysis.`;
-      }
-      return `Sathvik has worked on several AI projects including healthcare applications, business intelligence platforms, and agricultural AI systems. Which project interests you most? I can tell you about the Ovarian Cancer Detection, Universal Data Analyst, or Intelligent Crop Recommendation systems.`;
+      return `Key projects: MITRA AI (agentic MuleSoft), Hartford ML Platform (11M+ records), Rate Stream Document AI (GCP), StatVisor (multi-agent), Fiber Classification (YOLOv11), UBS Fraud Detection (GNN). Which would you like details on?`;
     }
-    
-    // Skills
+
     if (message.includes('skill') || message.includes('technology') || message.includes('expertise')) {
-      if (message.includes('machine learning') || message.includes('ml')) {
-        return portfolioKnowledge.skills["Machine Learning"];
-      }
-      if (message.includes('data') || message.includes('engineering')) {
-        return portfolioKnowledge.skills["Data Engineering"];
-      }
-      if (message.includes('cloud') || message.includes('aws') || message.includes('azure')) {
-        return portfolioKnowledge.skills["Cloud Services"];
-      }
-      if (message.includes('python') || message.includes('programming')) {
-        return portfolioKnowledge.skills["Programming"];
-      }
-      return `Sathvik has expertise in Machine Learning, Data Engineering, Cloud Services, Programming, and AI/ML Tools. Which area would you like me to elaborate on?`;
+      if (message.includes('agentic') || message.includes('agent')) return portfolioKnowledge.skills["Agentic AI"];
+      if (message.includes('mlops')) return portfolioKnowledge.skills["MLOps"];
+      if (message.includes('generative') || message.includes('llm') || message.includes('rag')) return portfolioKnowledge.skills["Generative AI"];
+      if (message.includes('cloud') || message.includes('aws') || message.includes('azure') || message.includes('gcp')) return portfolioKnowledge.skills["Cloud Services"];
+      if (message.includes('machine learning') || message.includes('ml')) return portfolioKnowledge.skills["Machine Learning"];
+      return `Sathvik's expertise spans Agentic AI, MLOps, Generative AI/RAG, Machine Learning, and Cloud Platforms. Which area should I elaborate on?`;
     }
-    
-    // Education
-    if (message.includes('education') || message.includes('degree') || message.includes('university')) {
-      return `Sathvik holds a Master's in Information Technology from University of Cincinnati with a perfect 4.0 GPA. His studies focused on information security, cybersecurity, machine learning, data mining, and cloud platforms including Azure and GCP.`;
+
+    if (message.includes('publication') || message.includes('paper') || message.includes('published')) {
+      return `Sathvik has published: (1) Lung Disease and COVID Detection Using Chest X-Ray Images (EIJTEM), and (2) Pest Detection Using Deep Learning (IJSDIP).`;
     }
-    
-    // Contact
-    if (message.includes('contact') || message.includes('email') || message.includes('linkedin')) {
-      return `You can reach Sathvik through LinkedIn (linkedin.com/in/sathviksanka), GitHub (github.com/sathvikmaahi), or email at sathviksanka1@gmail.com. He's always interested in new opportunities and collaborations!`;
+
+    if (message.includes('certification') || message.includes('cert')) {
+      return `Certifications: Oracle Generative AI Professional, Oracle Vector Search Professional, Oracle Agentic AI Associate, AWS Data Engineer, IBM ML Specialist, Databricks GenAI Fundamentals, Prompt Engineering (DeepLearning.AI), and Microsoft MLOps Engineer (In Progress).`;
     }
-    
-    // Default response
-    return `I'm here to help you learn about Sathvik's portfolio! You can ask me about his projects, skills, experience, education, or contact information. What would you like to know?`;
+
+    if (message.includes('education') || message.includes('degree')) {
+      return portfolioKnowledge.personal.education;
+    }
+
+    if (message.includes('contact') || message.includes('email')) {
+      return portfolioKnowledge.personal.name + " can be reached at veerabadhrasathvik@gmail.com, LinkedIn (linkedin.com/in/sathviksanka), or GitHub (github.com/sathvikmaahi).";
+    }
+
+    return `Ask me about Sathvik's agentic AI work, MLOps experience, projects, publications, certifications, or contact information!`;
   };
 
-  const handleSendMessage = async () => {
-    if (!inputMessage.trim()) return;
-    
-    const userMessage = inputMessage.trim();
+  const handleSendMessage = async (prompt) => {
+    const userMessage = (prompt || inputMessage).trim();
+    if (!userMessage) return;
+
     setInputMessage('');
-    
-    // Add user message
+
     const newUserMessage = { type: 'user', content: userMessage, timestamp: new Date() };
     setMessages(prev => [...prev, newUserMessage]);
-    
-    // Show typing indicator
     setIsTyping(true);
-    
-    // Simulate AI thinking time
+
     setTimeout(() => {
       const aiResponse = generateAIResponse(userMessage);
       const newAIMessage = { type: 'ai', content: aiResponse, timestamp: new Date() };
@@ -328,80 +302,110 @@ const AIPortfolioAssistant = () => {
 
   return (
     <>
-      {/* Floating Chat Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 left-8 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 z-50"
-        title="Ask me anything about Sathvik's portfolio!"
-      >
-        <FaComments size={24} />
-      </button>
+      {!isOpen && (
+        <div className="fixed bottom-8 left-8 z-50 flex flex-col items-start gap-2">
+          <div className="ai-glass px-4 py-2 rounded-2xl text-sm text-slate-300 font-mono hidden md:block animate-fade-in-up border-ai-cyan/20">
+            <span className="text-ai-cyan">✦</span> Ask my AI about my work
+          </div>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative group bg-gradient-to-r from-ai-indigo via-ai-purple to-ai-cyan text-white p-4 rounded-full shadow-glow hover:shadow-glow-lg transform hover:scale-110 transition-all duration-300 animate-neural-pulse"
+            title="Ask me anything about Sathvik's portfolio!"
+          >
+            <span className="absolute inset-0 rounded-full bg-ai-cyan/20 animate-ping opacity-30" />
+            <FaRobot size={26} className="relative z-10" />
+          </button>
+        </div>
+      )}
 
-      {/* Chat Modal */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-end justify-end p-4">
-          <div className="bg-[#23272f] rounded-2xl shadow-2xl w-full max-w-md h-[600px] flex flex-col border border-white/10">
-            {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-white/10">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center sm:justify-end p-4">
+          <div className="ai-glass rounded-2xl shadow-glow-lg w-full max-w-md h-[min(600px,85vh)] flex flex-col border-ai-cyan/20 overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b border-white/10 bg-gradient-to-r from-ai-indigo/10 to-ai-purple/10">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
-                  <FaRobot className="text-white" size={20} />
+                <div className="relative w-11 h-11 bg-gradient-to-r from-ai-indigo to-ai-cyan rounded-xl flex items-center justify-center shadow-glow-cyan">
+                  <FaRobot className="text-white" size={22} />
+                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-ai-dark animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white">AI Portfolio Assistant</h3>
-                  <p className="text-sm text-gray-400">Ask me anything about Sathvik!</p>
+                  <h3 className="font-bold text-white flex items-center gap-2">
+                    AI Assistant
+                    <FaBolt className="text-ai-cyan" size={12} />
+                  </h3>
+                  <p className="text-xs text-ai-cyan font-mono">● Online · Neural knowledge base</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-slate-400 hover:text-white transition-colors p-1"
+                aria-label="Close assistant"
               >
                 <FaTimes size={20} />
               </button>
             </div>
 
-            {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.length === 0 && (
-                <div className="text-center text-gray-400 py-8">
-                  <FaRobot className="mx-auto mb-3 text-4xl text-primary" />
-                  <p>Hi! I'm your AI assistant for Sathvik's portfolio.</p>
-                  <p className="text-sm mt-2">Ask me about his projects, skills, experience, or anything else!</p>
+                <div className="text-center py-6">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-ai-indigo/20 to-ai-cyan/20 flex items-center justify-center border border-ai-cyan/20">
+                    <FaRobot className="text-ai-cyan text-3xl" />
+                  </div>
+                  <p className="text-white font-medium mb-1">Hi, I'm Sathvik's AI assistant</p>
+                  <p className="text-sm text-slate-400 mb-6">Powered by portfolio knowledge — ask about agentic AI, MLOps, or projects</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {SUGGESTED_PROMPTS.map((prompt) => (
+                      <button
+                        key={prompt}
+                        type="button"
+                        onClick={() => handleSendMessage(prompt)}
+                        className="text-xs font-mono px-3 py-1.5 rounded-full bg-ai-indigo/15 text-ai-cyan border border-ai-indigo/30 hover:border-ai-cyan/50 hover:bg-ai-indigo/25 transition-colors"
+                      >
+                        {prompt}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
-              
+
               {messages.map((message, index) => (
                 <div key={index} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] rounded-2xl px-4 py-3 ${
-                    message.type === 'user' 
-                      ? 'bg-primary text-white' 
-                      : 'bg-white/10 text-white border border-white/20'
+                  <div className={`max-w-[85%] rounded-2xl px-4 py-3 ${
+                    message.type === 'user'
+                      ? 'bg-gradient-to-r from-ai-indigo to-ai-purple text-white'
+                      : 'ai-glass text-slate-200 border-ai-cyan/10'
                   }`}>
-                    <p className="text-sm">{message.content}</p>
-                    <p className="text-xs opacity-70 mt-2">
+                    {message.type === 'ai' && (
+                      <div className="flex items-center gap-1.5 mb-1.5 text-ai-cyan text-xs font-mono">
+                        <FaRobot size={10} /> AI
+                      </div>
+                    )}
+                    <p className="text-sm leading-relaxed">{message.content}</p>
+                    <p className="text-xs opacity-50 mt-2 font-mono">
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </p>
                   </div>
                 </div>
               ))}
-              
+
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-white/10 text-white border border-white/20 rounded-2xl px-4 py-3">
+                  <div className="ai-glass rounded-2xl px-4 py-3 border-ai-cyan/10">
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '0ms'}}></div>
-                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '150ms'}}></div>
-                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '300ms'}}></div>
+                      <FaRobot className="text-ai-cyan" size={12} />
+                      <div className="flex gap-1">
+                        <div className="w-2 h-2 bg-ai-cyan rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <div className="w-2 h-2 bg-ai-purple rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <div className="w-2 h-2 bg-ai-indigo rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      </div>
                     </div>
                   </div>
                 </div>
               )}
-              
+
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
-            <div className="p-4 border-t border-white/10">
+            <div className="p-4 border-t border-white/10 bg-ai-dark/50">
               <div className="flex gap-2">
                 <input
                   ref={inputRef}
@@ -409,13 +413,14 @@ const AIPortfolioAssistant = () => {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask me anything about Sathvik's portfolio..."
-                  className="flex-1 bg-white/10 text-white placeholder-gray-400 rounded-xl px-4 py-3 border border-white/20 focus:border-primary focus:outline-none transition-colors"
+                  placeholder="Ask about agentic AI, MLOps, projects..."
+                  className="flex-1 bg-white/5 text-white placeholder-slate-500 rounded-xl px-4 py-3 border border-white/10 focus:border-ai-cyan/50 focus:outline-none focus:ring-1 focus:ring-ai-cyan/30 transition-all font-mono text-sm"
                 />
                 <button
-                  onClick={handleSendMessage}
+                  onClick={() => handleSendMessage()}
                   disabled={!inputMessage.trim()}
-                  className="bg-primary text-white p-3 rounded-xl hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="bg-gradient-to-r from-ai-indigo to-ai-cyan text-white p-3 rounded-xl hover:shadow-glow-cyan disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                  aria-label="Send message"
                 >
                   <FaPaperPlane size={16} />
                 </button>
