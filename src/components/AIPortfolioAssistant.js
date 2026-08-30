@@ -20,6 +20,12 @@ const AIPortfolioAssistant = () => {
       background: "AI/ML Engineer building production-grade agentic AI, RAG systems, and MLOps platforms across insurance, banking, and financial services on AWS, GCP, and Azure."
     },
     projects: {
+      "InnSight AI": {
+        description: "Enterprise multi-agent platform using Google ADK, Vertex AI Agent Runtime, and Gemini with 7 specialized agents via A2A and ADK AgentTool, FastAPI integration across ~30 endpoints, YAML enterprise ontology, and human-in-the-loop governance gates.",
+        technologies: ["Google ADK", "Vertex AI", "Gemini", "A2A", "FastAPI", "SQLAlchemy"],
+        impact: "Unified conversational interface across business functions with controlled inter-agent communication and policy-gated autonomous actions",
+        link: "https://innsight-frontend-710672106455.us-central1.run.app"
+      },
       "MITRA AI": {
         description: "Agentic MuleSoft integration analysis platform using Google ADK multi-agent architecture and production RAG with BM25, Azure OpenAI, and pgvector — reduced discovery from weeks to under 48 hours.",
         technologies: ["Google ADK", "RAG", "pgvector", "LiteLLM", "Terraform", "AWS ECS"],
@@ -39,6 +45,11 @@ const AIPortfolioAssistant = () => {
         description: "YOLOv11 computer vision pipeline with Medallion-structured OpenCV preprocessing, improving material analysis accuracy by 45%.",
         technologies: ["YOLOv11", "OpenCV", "PyTorch", "Docker"],
         impact: "Optimized P&G FemCare product development strategies"
+      },
+      "Predictive Maintenance": {
+        description: "LSTM-based predictive maintenance on medical device sensor time-series data with Kafka real-time ingestion, anomaly detection, and Streamlit dashboards.",
+        technologies: ["TensorFlow", "LSTM", "Apache Kafka", "Docker", "Streamlit", "GitHub Actions"],
+        impact: "Proactive maintenance interventions before device performance degradation"
       },
       "UBS Fraud Detection": {
         description: "Credit risk and fraud detection platform using PyTorch, Spark MLlib, and GNN prototypes for organized fraud ring identification.",
@@ -97,6 +108,7 @@ const AIPortfolioAssistant = () => {
   };
 
   const SUGGESTED_PROMPTS = [
+    'Tell me about InnSight AI',
     'Tell me about MITRA AI',
     'What is your MLOps experience?',
     'Agentic AI projects',
@@ -121,7 +133,7 @@ const AIPortfolioAssistant = () => {
           return `MLOps is a core specialty! Sathvik maintains 6+ production ML pipelines with 99.5% uptime, implements DQM/MQM monitoring, CI/CD with AWS CodePipeline and MLflow, and Infrastructure-as-Code with Terraform and CloudFormation.`;
         case 'agentic':
         case 'agents':
-          return `Sathvik builds production agentic AI systems including MITRA AI (Google ADK multi-agent MuleSoft analyzer) and StatVisor (LangGraph + Azure OpenAI with Copilot Studio integration).`;
+          return `Sathvik builds production agentic AI systems including InnSight AI (Google ADK enterprise multi-agent platform with live demo), MITRA AI (Google ADK MuleSoft analyzer), and StatVisor (LangGraph + Azure OpenAI with Copilot Studio integration).`;
         case 'rag':
           return `Sathvik engineers production RAG pipelines with hybrid BM25 + dense retrieval, Medallion architectures (Bronze/Silver/Gold), and vector databases (pgvector, FAISS, Pinecone).`;
         case 'ai':
@@ -132,7 +144,7 @@ const AIPortfolioAssistant = () => {
           return `Cloud expertise spans AWS (SageMaker, Bedrock, ECS, Lambda), GCP (Vertex AI, Document AI, BigQuery), and Azure (AI Foundry, Copilot Studio, AI Search).`;
         case 'projects':
         case 'work':
-          return `Key projects: MITRA AI (agentic MuleSoft), Hartford ML Platform (11M+ records), StatVisor (multi-agent analytics), Fiber Classification (YOLOv11), UBS Fraud Detection (GNN). Which interests you?`;
+          return `Key projects: InnSight AI (enterprise multi-agent, live demo), MITRA AI (agentic MuleSoft), Hartford ML Platform (11M+ records), StatVisor (multi-agent analytics), Fiber Classification (YOLOv11), UBS Fraud Detection (GNN). Which interests you?`;
         case 'experience':
           return `Currently ML Engineer at Miracle Software Systems (May 2026–Present). Previously MLOps Engineer at Innovcentric/Hartford (2025–2026), ML Engineer at Innovcentric/P&G (2024–2025), and ML Engineer at Symise/UBS (2022–2023).`;
         case 'education':
@@ -186,6 +198,9 @@ const AIPortfolioAssistant = () => {
         case 'miracle':
         case 'mitra':
           return `At Miracle Software Systems, Sathvik builds MITRA AI — an agentic MuleSoft integration accelerator using Google ADK, production RAG with pgvector, and Medallion lakehouse pipelines.`;
+        case 'innsight':
+        case 'ihg':
+          return `InnSight AI is Sathvik's enterprise multi-agent platform using Google ADK, Vertex AI Agent Runtime, and Gemini — 7 specialized agents via A2A/ADK AgentTool, FastAPI integration layer, YAML enterprise ontology, and human-in-the-loop governance. Live demo: https://innsight-frontend-710672106455.us-central1.run.app`;
         case 'hartford':
         case 'insurance':
           return `At Innovcentric/The Hartford, Sathvik was MLOps Engineer building production ML pipelines processing 11M+ records with DQM/MQM monitoring and GCP Document AI.`;
@@ -201,7 +216,8 @@ const AIPortfolioAssistant = () => {
           );
           if (projectMatch) {
             const project = portfolioKnowledge.projects[projectMatch];
-            return `${projectMatch}: ${project.description} Technologies: ${project.technologies.join(', ')}.`;
+            const linkNote = project.link ? ` Live demo: ${project.link}` : '';
+            return `${projectMatch}: ${project.description} Technologies: ${project.technologies.join(', ')}.${linkNote}`;
           }
           const skillMatch = Object.keys(portfolioKnowledge.skills).find(skill =>
             skill.toLowerCase().includes(singleWord)
@@ -230,7 +246,7 @@ const AIPortfolioAssistant = () => {
     }
 
     if (message.includes('project') || message.includes('work')) {
-      return `Key projects: MITRA AI (agentic MuleSoft), Hartford ML Platform (11M+ records), Rate Stream Document AI (GCP), StatVisor (multi-agent), Fiber Classification (YOLOv11), UBS Fraud Detection (GNN). Which would you like details on?`;
+      return `Key projects: InnSight AI (enterprise multi-agent, live demo), MITRA AI (agentic MuleSoft), Hartford ML Platform (11M+ records), Rate Stream Document AI (GCP), StatVisor (multi-agent), Fiber Classification (YOLOv11), UBS Fraud Detection (GNN). Which would you like details on?`;
     }
 
     if (message.includes('skill') || message.includes('technology') || message.includes('expertise')) {

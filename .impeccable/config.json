@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "ai-color-palette",
+        "value": "purple/violet gradients and cyan-on-dark",
+        "files": [
+          "src/App.js"
+        ],
+        "createdAt": "2026-08-30T01:31:05.066Z",
+        "reason": "agent: intentional established portfolio theme; project-data-only edit"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "animate-bounce",
+        "files": [
+          "src/components/AIPortfolioAssistant.js"
+        ],
+        "createdAt": "2026-08-30T01:31:05.110Z",
+        "reason": "agent: pre-existing decorative animation; knowledge-base-only edit"
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          "src/App.js"
+        ],
+        "createdAt": "2026-08-30T01:31:13.023Z",
+        "reason": "agent: established portfolio theme; data-only project entry edit"
+      }
+    ]
+  }
+}

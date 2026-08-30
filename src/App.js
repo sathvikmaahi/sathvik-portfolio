@@ -120,6 +120,13 @@ const experiences = [
 
 const projects = [
   {
+    name: "InnSight AI — Multi-Agent Enterprise AI Platform",
+    desc: "Enterprise multi-agent platform using Google ADK, Vertex AI Agent Runtime, and Gemini, orchestrating 7 specialized agents through A2A and ADK AgentTool with independent execution contexts. FastAPI abstracts ~30 business-system endpoints behind standardized HTTP interfaces; YAML ontology and SQLAlchemy entity resolution unify fragmented data; runtime policy gates enforce role validation, approval checkpoints, and human-in-the-loop controls.",
+    tech: ["Google ADK", "Vertex AI", "Gemini", "A2A", "FastAPI", "SQLAlchemy", "Human-in-the-Loop"],
+    link: "https://innsight-frontend-710672106455.us-central1.run.app",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop"
+  },
+  {
     name: "MITRA AI — Agentic MuleSoft Integration Accelerator",
     desc: "Agentic MuleSoft integration analysis platform that reduced manual discovery from weeks to under 48 hours, with multi-agent Google ADK orchestration and production-grade RAG using BM25, Azure OpenAI, and pgvector.",
     tech: ["Google ADK", "RAG", "pgvector", "LiteLLM", "Terraform", "AWS ECS", "FastAPI"],
@@ -153,6 +160,13 @@ const projects = [
     tech: ["YOLOv11", "OpenCV", "PyTorch", "Docker", "Medallion Architecture"],
     link: "",
     image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=250&fit=crop"
+  },
+  {
+    name: "Predictive Maintenance & Medical Device Health Monitoring",
+    desc: "LSTM-based predictive maintenance models on time-series sensor data from connected medical devices, with real-time Apache Kafka ingestion, anomaly detection for proactive interventions, and Streamlit dashboards for R&D teams.",
+    tech: ["TensorFlow", "LSTM", "Apache Kafka", "Docker", "Streamlit", "GitHub Actions"],
+    link: "",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop"
   },
   {
     name: "UBS Credit Risk & Fraud Detection Platform",
@@ -309,7 +323,7 @@ const researchInterests = [
 
 const stats = [
   { number: "5+", label: "Years Experience" },
-  { number: "8+", label: "Production Projects" },
+  { number: "10+", label: "Production Projects" },
   { number: "8", label: "Certifications" },
   { number: "99.5%", label: "Pipeline Uptime" }
 ];
